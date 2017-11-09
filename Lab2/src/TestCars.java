@@ -10,7 +10,6 @@ public class TestCars {
         TestCars testProgram = new TestCars();
         testProgram.testSaab95();
         testProgram.testVolvo240();
-
     }//main
 
     private void testSaab95() {
@@ -20,7 +19,6 @@ public class TestCars {
         saab95ToTest.gas(0.2);
         saab95ToTest.setTurboOff();
         System.out.println(1.25==saab95ToTest.getSpeedFactor());
-
     }
 
     private void testVolvo240() {
