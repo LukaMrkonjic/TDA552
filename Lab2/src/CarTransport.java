@@ -10,12 +10,12 @@ public class CarTransport extends Truck {
         Stack vehicles = new Stack();
         double maxStorageSpace = 100;
         loadingPlatform = new LoadingPlatform();
-        loadVehicles(loadingPlatform, up);
+        setLoadingPlatform(loadingPlatform, up);
         VehicleStorage v = new VehicleStorage(maxStorageSpace, 50, vehicles);
     }
 
     //TODO: Overload the setAngle method instead of creating a new one(this method)
-    public void loadVehicles(LoadingPlatform loadingPlatform, int angle) {
+    public void setLoadingPlatform(LoadingPlatform loadingPlatform, int angle) {
         if (angle == 0 && getCurrentSpeed() == 0) {
             loadingPlatform.setAngle(down);
         } else {
