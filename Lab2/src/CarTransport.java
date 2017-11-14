@@ -2,26 +2,19 @@ import java.util.Stack;
 
 public class CarTransport extends Truck {
 
-    LoadingPlatform loadingPlatform;
+        LoadingPlatform loadingPlatform;
+        int maxStorageSpace;
+        int maxSizeOfOneVehicle;
+        final int down = 0;
+        final int up = 90;
 
-        loadingPlatform.setAngle(up);
-        loadingPlatform = new LoadingPlatform();
-        VehicleStorage v = new VehicleStorage(maxStorageSpace, 50, vehicles);
-    }
-
-    public void setPlatform(int i) {
-        if (i == up) {
-            loadingPlatform.setAngle(up);
-        }
-        else if (i == down && getCurrentSpeed() == 0) {
-            loadingPlatform.setAngle(down);
-        }
-        else {
-            System.out.println("Platform must be up or down.");
-
-        loadingPlatform = new LoadingPlatform();
-        setLoadingPlatform(loadingPlatform, up);
-        VehicleStorage v = new VehicleStorage(maxStorageSpace, 50, vehicles);
+    public CarTransport() {
+            maxStorageSpace = 250;
+            maxSizeOfOneVehicle = 50;
+            Stack<Vehicle> vehicles = new Stack<Vehicle>();
+            loadingPlatform = new LoadingPlatform();
+            setLoadingPlatform(loadingPlatform, up);
+            VehicleStorage v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle, vehicles);
     }
 
     //TODO: Overload the setAngle method instead of creating a new one(this method)
