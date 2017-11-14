@@ -7,13 +7,21 @@ public class CarFerry extends Ferry {
 
     LoadingPlatform loadingPlatform;
     int maxSizeOfOneVehicle;
+    VehicleStorage v;
 
     public CarFerry() {
         maxSizeOfOneVehicle = 80;
-        LinkedList<Vehicle> vehicles = new LinkedList<>();
         double maxStorageSpace = 1000;
         loadingPlatform = new LoadingPlatform(getCurrentSpeed());
-        VehicleStorage v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle, vehicles);
+        v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle);
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        v.addVehicle(vehicle);
+    }
+
+    public void removeVehicle() {
+        v.removeVehicle(0);
     }
 
 }

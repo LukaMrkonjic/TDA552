@@ -13,10 +13,9 @@ public class CarTransport extends Truck {
     public CarTransport() {
             maxStorageSpace = 250;
             maxSizeOfOneVehicle = 50;
-            LinkedList<Vehicle> vehicles = new LinkedList<>();
             loadingPlatform = new LoadingPlatform(getCurrentSpeed());
             setLoadingPlatform(loadingPlatform, up);
-            v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle, vehicles);
+            v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle);
     }
 
     //TODO: Overload the setAngle method instead of creating a new one(this method)
@@ -27,6 +26,14 @@ public class CarTransport extends Truck {
             loadingPlatform.setAngle(angle);
 
         }
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        v.addVehicle(vehicle);
+    }
+
+    public void removeVehicle() {
+        v.removeVehicle(v.getVehicles().size());
     }
 
 }
