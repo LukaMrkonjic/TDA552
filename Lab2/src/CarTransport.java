@@ -18,6 +18,12 @@ public class CarTransport extends Truck {
             v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle);
     }
 
+    @Override
+    public void move() {
+        super.move();
+            v.setPosition(this.getPosition());
+    }
+
     //TODO: Overload the setAngle method instead of creating a new one(this method)
     public void setLoadingPlatform(LoadingPlatform loadingPlatform, int angle) {
         if (angle == 0 && getCurrentSpeed() == 0) {

@@ -24,4 +24,10 @@ public class CarFerry extends Ferry {
         v.removeVehicle(0);
     }
 
+    @Override
+    public void move() {
+        super.move();
+        v.setPosition(this.getPosition());
+    }
+
 }
