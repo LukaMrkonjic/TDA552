@@ -27,9 +27,8 @@ public class VehicleStorage {
 	 *
 	 * @param maxStorageSpace is the max number of sqm that the VehicleStorage can load with Vehicles
 	 * @param maxSizeOfOneVehicle is the max size of one vehicle to be loaded onto the storage
-	 * @param vehicles is the abstract collection that will hold the vehicles
 	 */
-	public VehicleStorage(double maxStorageSpace, double maxSizeOfOneVehicle, AbstractCollection<Vehicle> vehicles) {
+	public VehicleStorage(double maxStorageSpace, double maxSizeOfOneVehicle) {
 		setMaxStorageSpace(maxStorageSpace);
 		setMaxSizeOfOneVehicle(maxSizeOfOneVehicle);
 		setVehicles(vehicles);
@@ -39,7 +38,7 @@ public class VehicleStorage {
 	 * @return the AbstractCollection that keeps track of the vehicles loaded
 	 * 	onto the VehicleStorage
 	 */
-	public AbstractCollection<Vehicle> getVehicles() {
+	public LinkedList<Vehicle> getVehicles() {
 		return vehicles;
 	}
 
@@ -51,7 +50,7 @@ public class VehicleStorage {
 	 *                 methods, as they will behave differently for say a Stack and a
 	 *                 Queue which are both subclasses of AbstractCollection
 	 */
-	public void setVehicles(AbstractCollection<Vehicle> vehicles) {
+	public void setVehicles(LinkedList<Vehicle> vehicles) {
 		this.vehicles = vehicles;
 	}
 
@@ -148,18 +147,23 @@ public class VehicleStorage {
 	 */
 	public void addVehicle(Vehicle v) {
 		if (vehicleIsSmallerThanMaxSize(v) && vehicleFitsInCurrentSpaceLeft(v)) {
-				vehicles.add(v);
-				vehicleCount++;
-				setCurrentStorageSpaceLeft(getCurrentStorageSpaceLeft() - v.getTransportSize());
+			vehicles.add(v);
+			vehicleCount++;
+			setCurrentStorageSpaceLeft(getCurrentStorageSpaceLeft() - v.getTransportSize());
 		} else {
 			System.out.println("Can't load vehicles of specified size onto this VehicleStorage. Max size of one" +
-								" vehicle is set to " + getMaxSizeOfOneVehicle() + " and current available space" +
-								" is " + getCurrentStorageSpaceLeft() + ".");
+					" vehicle is set to " + getMaxSizeOfOneVehicle() + " and current available space" +
+					" is " + getCurrentStorageSpaceLeft() + ".");
 		}
 		//TODO: change println to catch/throw error
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * This method removes a vehicle at the index specified
+	 * by the method call.
+>>>>>>> 37389786d1c30d7ed943a6b81f1a1641de882541
 	 *
 	 * @param i the index of the vehicle to be removed
 	 */
@@ -175,10 +179,26 @@ public class VehicleStorage {
 	}
 
 
+	/**
+	 * This method checks whether the vehicle to be added is smaller than
+	 * the max size of one vehicle for the vehicle storage.
+	 *
+	 * @param v the vehicle to check size of
+	 * @return a boolean that is true if the vehicle can be added
+	 * to the VehicleStorage, and false otherwise
+	 */
 	private boolean vehicleIsSmallerThanMaxSize(Vehicle v) {
 		return (v.getTransportSize() <= maxSizeOfOneVehicle);
 	}
 
+	/**
+	 * This method checks if a new vehicle fits in the space that's left
+	 * in the Vehicle Storage.
+	 *
+	 * @param v the vehicle to check whether it fits in the remaining space
+	 * @return a boolean that is true if the vehicle does fit, and false
+	 * otherwise
+	 */
 	private boolean vehicleFitsInCurrentSpaceLeft(Vehicle v) {
 		return (v.getTransportSize() <= getCurrentStorageSpaceLeft());
 	}

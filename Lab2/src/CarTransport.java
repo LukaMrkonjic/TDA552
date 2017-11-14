@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class CarTransport extends Truck {
@@ -7,14 +8,14 @@ public class CarTransport extends Truck {
         int maxSizeOfOneVehicle;
         final int down = 0;
         final int up = 90;
+        VehicleStorage v;
 
     public CarTransport() {
             maxStorageSpace = 250;
             maxSizeOfOneVehicle = 50;
-            Stack<Vehicle> vehicles = new Stack<Vehicle>();
-            loadingPlatform = new LoadingPlatform();
+            loadingPlatform = new LoadingPlatform(getCurrentSpeed());
             setLoadingPlatform(loadingPlatform, up);
-            VehicleStorage v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle, vehicles);
+            v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle);
     }
 
     //TODO: Overload the setAngle method instead of creating a new one(this method)
@@ -25,6 +26,14 @@ public class CarTransport extends Truck {
             loadingPlatform.setAngle(angle);
 
         }
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        v.addVehicle(vehicle);
+    }
+
+    public void removeVehicle() {
+        v.removeVehicle(v.getVehicles().size());
     }
 
 }
