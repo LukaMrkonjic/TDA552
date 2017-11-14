@@ -1,4 +1,5 @@
 
+import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
 /**
@@ -17,6 +18,7 @@ public class VehicleStorage {
 	private double maxSizeOfOneVehicle;
 	private int vehicleCount;
 	private LinkedList<Vehicle> vehicles;
+	private Point2D.Double position;
 
 	/**
 	 * The constructor for a VehicleStorage takes in a certain number of parameters that are
@@ -32,6 +34,28 @@ public class VehicleStorage {
 		setMaxStorageSpace(maxStorageSpace);
 		setMaxSizeOfOneVehicle(maxSizeOfOneVehicle);
 		setVehicles(vehicles);
+	}
+
+	/**
+	 *
+	 * @return the current position of the VehicleStorage.
+	 */
+	public Point2D.Double getPosition() {
+		return position;
+	}
+
+	/**
+	 * This method updates the position of the VehicleStorage
+	 * and loops through all the vehicles in the storage and
+	 * updates their positions.
+	 *
+	 * @param p the position to set
+	 */
+	public void setPosition(Point2D.Double p) {
+		this.position = p;
+		for (Vehicle v : getVehicles()) {
+			v.setPosition(p);
+		}
 	}
 
 	/**

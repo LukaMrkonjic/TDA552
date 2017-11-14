@@ -12,18 +12,8 @@ public abstract class Transport implements Movable {
     private Color color; // Color of the transport
     private String modelName; // The transport model name
 	private double transportSize;
-	private double storageSpace;
-    private double maxStorageSpace;
-    //TODO: Create a transportSize instance variable to be used by the vehicles that load on vehicles?
 
 
-    public double getMaxStorageSpace() {
-        return maxStorageSpace;
-    }
-
-    public void setMaxStorageSpace(double maxStorageSpace) {
-        this.maxStorageSpace = maxStorageSpace;
-    }
 
     /**
      * @return the current position.
@@ -48,21 +38,6 @@ public abstract class Transport implements Movable {
         this.transportSize = transportSize;
     }
 
-    /**
-     *
-     * @param storageSpace available storage space
-     */
-    public void setStorageSpace(double storageSpace) {
-        this.storageSpace = storageSpace;
-    }
-
-    /**
-     *
-     * @return the remaining storage space
-     */
-    public double getStorageSpace() {
-        return storageSpace;
-    }
 
     /**
      * @param position position to set, as a Point.
