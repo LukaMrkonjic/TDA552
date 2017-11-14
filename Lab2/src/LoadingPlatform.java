@@ -14,16 +14,18 @@ public class LoadingPlatform {
 	private boolean angleIsZero;
 	private int maxAngle;
 	private int minAngle;
+	double speed;
 
 	/**
 	 * This primary, standard constructor doesn't take any inputs
 	 * and sets the min and max angle to default values 0 and 90
 	 * respectively.
 	 */
-	public LoadingPlatform() {
+	public LoadingPlatform(double speed) {
 		setAngle(0);
 		setMaxAngle(90);
 		setMinAngle(0);
+		speed = this.speed;
 	}
 
 	/**
