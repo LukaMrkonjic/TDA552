@@ -183,11 +183,8 @@ public class VehicleStorage {
 	}
 
 	/**
-<<<<<<< HEAD
-=======
 	 * This method removes a vehicle at the index specified
 	 * by the method call.
->>>>>>> 37389786d1c30d7ed943a6b81f1a1641de882541
 	 *
 	 * @param i the index of the vehicle to be removed
 	 */
@@ -253,6 +250,5 @@ public class VehicleStorage {
 		newStorageSpaceLeft = currentStorageSpaceLeft - (this.getMaxStorageSpace() - newStorageSpace);
 		return newStorageSpaceLeft;
 	}
-
 
 }
