@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class CarTransport extends Truck {
@@ -12,7 +13,7 @@ public class CarTransport extends Truck {
     public CarTransport() {
             maxStorageSpace = 250;
             maxSizeOfOneVehicle = 50;
-            Stack<Vehicle> vehicles = new Stack<>();
+            LinkedList<Vehicle> vehicles = new LinkedList<>();
             loadingPlatform = new LoadingPlatform(getCurrentSpeed());
             setLoadingPlatform(loadingPlatform, up);
             v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle, vehicles);

@@ -6,12 +6,14 @@ import java.util.Queue;
 public class CarFerry extends Ferry {
 
     LoadingPlatform loadingPlatform;
+    int maxSizeOfOneVehicle;
 
     public CarFerry() {
-        LinkedList<Vehicle> vehicles = new LinkedList<Vehicle>();
+        maxSizeOfOneVehicle = 80;
+        LinkedList<Vehicle> vehicles = new LinkedList<>();
         double maxStorageSpace = 1000;
-        loadingPlatform = new LoadingPlatform();
-        VehicleStorage v = new VehicleStorage(maxStorageSpace, 50, vehicles);
+        loadingPlatform = new LoadingPlatform(getCurrentSpeed());
+        VehicleStorage v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle, vehicles);
     }
 
 }

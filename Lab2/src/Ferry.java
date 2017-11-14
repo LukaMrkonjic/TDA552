@@ -1,2 +1,2 @@
-public class Ferry {
+public class Ferry extends Transport {
 }
