@@ -1,31 +1,29 @@
-import java.util.AbstractCollection;
+
+import java.util.LinkedList;
 
 /**
- * The class VehicleStorage stores Vehicles in an AbstractCollection and
- * keeps track of the number of vehicles, the space left in the storage,
- * as well as what car should be removed when Remove method is called.
+ * The class VehicleStorage stores Vehicles in an LinkedList and
+ * keeps track of the number of vehicles and the space left in the storage.
+ *
  *
  * @author SaraLandfors
  * @version 1.0
  */
 public class VehicleStorage {
 
-
 	//Instance variables
 	private double maxStorageSpace;
 	private double currentStorageSpaceLeft;
 	private double maxSizeOfOneVehicle;
 	private int vehicleCount;
-	private AbstractCollection<Vehicle> vehicles;
+	private LinkedList<Vehicle> vehicles;
 
 	/**
 	 * The constructor for a VehicleStorage takes in a certain number of parameters that are
 	 * decided by the Transport that will have a VehicleStorage, such as maxSizeOfOneVehicle,
-	 * maxStorageSpace (in sqm), as well as an AbstractCollection to store the Vehicles in.
+	 * maxStorageSpace (in sqm), as well as a LinkedList to store the Vehicles in.
 	 *
-	 * The AbstractCollection will determine what behavior the VehicleStorage will have
-	 * when vehicles are added or removed (for example FIFO for Queue and LIFO for Stack).
-	 * (In other words, polymorphism is utilized in order to keep code duplication to a minimum)
+	 *
 	 *
 	 * @param maxStorageSpace is the max number of sqm that the VehicleStorage can load with Vehicles
 	 * @param maxSizeOfOneVehicle is the max size of one vehicle to be loaded onto the storage
@@ -122,14 +120,32 @@ public class VehicleStorage {
 		this.maxSizeOfOneVehicle = maxSizeOfOneVehicle;
 	}
 
+	/**
+	 *
+	 * @return the number of vehicles currently on the VehicleStorage
+	 */
 	public int getVehicleCount() {
 		return vehicleCount;
 	}
 
-	public void setVehicleCount(int vehicleCount) {
+	/**
+	 * Sets the number of vehicles on the VehicleStorage. Method
+	 * is private, because method should only be called by adding
+	 * or removing vehicles, or by constructor.
+	 *
+	 * @param vehicleCount the number of vehicles to be set on the VehicleStorage
+	 */
+	private void setVehicleCount(int vehicleCount) {
 		this.vehicleCount = vehicleCount;
 	}
 
+	/**
+	 * This method adds a vehicle to the VehicleStorage if there is room for
+	 * the vehicle, and if the vehicle is not larger than the maximum size of one
+	 * vehicle. It also updates the numberOfVehicles.
+	 *
+	 * @param v the vehicle to be added
+	 */
 	public void addVehicle(Vehicle v) {
 		if (vehicleIsSmallerThanMaxSize(v) && vehicleFitsInCurrentSpaceLeft(v)) {
 				vehicles.add(v);
@@ -143,9 +159,13 @@ public class VehicleStorage {
 		//TODO: change println to catch/throw error
 	}
 
-	public void removeVehicle(Vehicle v) {
+	/**
+	 *
+	 * @param i the index of the vehicle to be removed
+	 */
+	public void removeVehicle(int i) {
 		if (vehicles.size() != 0) {
-			vehicles.remove(v);
+			Vehicle v = vehicles.remove(i);
 			vehicleCount--;
 			setCurrentStorageSpaceLeft(getCurrentStorageSpaceLeft() + v.getTransportSize());
 		} else {
