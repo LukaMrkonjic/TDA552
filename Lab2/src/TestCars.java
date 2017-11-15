@@ -1,5 +1,3 @@
-import org.codehaus.groovy.vmplugin.v5.JUnit4Utils;
-
 public class TestCars {
 
     public TestCars() {

@@ -71,7 +71,6 @@ public class CarTransport extends Truck {
     public void removeVehicle() {
         if (getCurrentSpeed() == 0 && loadingPlatform.getAngle() == 90) {
             Vehicle removedVehicle = v.removeVehicle(v.getVehicles().size()-1);
-            removedVehicle.setPosition(new Point2D.Double(getPosition().getX(), getPosition().getY()));
         } else {
             System.out.print("Angle and speed must be 0 to remove vehicles.");
         }

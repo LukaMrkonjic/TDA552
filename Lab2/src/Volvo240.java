@@ -20,6 +20,7 @@ public class Volvo240 extends Car {
         stopEngine();
         setPosition(new Point(0,0));
         setSpeedFactor(getSpeedFactor());
+        setTransportSize(4);
     }
 
     /**

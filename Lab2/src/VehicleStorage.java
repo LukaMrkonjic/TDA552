@@ -193,6 +193,7 @@ public class VehicleStorage {
 			Vehicle v = vehicles.remove(i);
 			vehicleCount--;
 			setCurrentStorageSpaceLeft(getCurrentStorageSpaceLeft() + v.getTransportSize());
+			setPosition(new Point2D.Double(getPosition().getX() - 10, getPosition().getY()) - 10);
 			return v;
 		} else {
 			System.out.println("There are no more vehicles to remove");
