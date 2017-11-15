@@ -188,11 +188,12 @@ public class VehicleStorage {
 	 *
 	 * @param i the index of the vehicle to be removed
 	 */
-	public void removeVehicle(int i) {
+	public Vehicle removeVehicle(int i) {
 		if (vehicles.size() != 0) {
 			Vehicle v = vehicles.remove(i);
 			vehicleCount--;
 			setCurrentStorageSpaceLeft(getCurrentStorageSpaceLeft() + v.getTransportSize());
+			return v;
 		} else {
 			System.out.println("There are no more vehicles to remove");
 			//TODO: change println to catch/throw error
