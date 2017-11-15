@@ -35,7 +35,8 @@ public class LoadingPlatform {
 	 * @param maxAngle  the maximum angle for the LoadingPlatform
 	 * @param minAngle  the minimum angle for the LoadingPlatform
 	 */
-	public LoadingPlatform(int maxAngle, int minAngle) {
+	public LoadingPlatform(double speed, int maxAngle, int minAngle) {
+		speed = this.speed;
 	    setAngle(0);
 		setMaxAngle(maxAngle);
 		setMinAngle(minAngle);
@@ -86,11 +87,18 @@ public class LoadingPlatform {
 	 * @param angle the angle to be set
 	 */
 	public void setAngle(int angle) {
-		this.angle = angle;
-		if (angle == 0) {
-			setAngleIsZero(true);
+		if (speed == 0) {
+			this.angle = angle;
+
+			if (angle == 0) {
+				setAngleIsZero(true);
+			}
+			else {
+				setAngleIsZero(false);
+			}
+
 		} else {
-			setAngleIsZero(false);
+			System.out.print("Speed must be 0 if angle is 0.");
 		}
 	}
 

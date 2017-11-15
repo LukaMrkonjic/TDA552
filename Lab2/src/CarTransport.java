@@ -1,3 +1,4 @@
+import java.awt.geom.Point2D;
 
 /**
  * The CarTransport class act like a general ground based vehicle
@@ -11,20 +12,20 @@ public class CarTransport extends Truck {
         LoadingPlatform loadingPlatform;
         int maxStorageSpace;
         int maxSizeOfOneVehicle;
-        final int down = 0;
-        final int up = 90;
+        final int down = 90;
+        final int up = 0;
         VehicleStorage v;
 
     /**
-     * The constructor for a CarTransport sets up a default cartransport with
+     * The constructor for a CarTransport sets up a default car transport with
      * a loading platform which has the same speed as the transport and a vehicle storage
      * with a max storage space and a max size per vehicle.
      */
     public CarTransport() {
             maxStorageSpace = 250;
-            maxSizeOfOneVehicle = 50;
+            maxSizeOfOneVehicle = 40;
             loadingPlatform = new LoadingPlatform(getCurrentSpeed());
-            setLoadingPlatform(loadingPlatform, up);
+            loadingPlatform.setAngle(up);
             v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle);
     }
 
@@ -39,22 +40,15 @@ public class CarTransport extends Truck {
         v.setPosition(this.getPosition());
     }
 
-    //TODO: Overload the setAngle method instead of creating a new one(this method)
     /**
-     * Sets a chosen angle for the loading platform which in this case
-     * only can be up(90 degrees) or down(0 degrees). Note that the car transport
-     * needs to be still(0 mph) for the platform to be lowered down.
+     * Redefines the setCurrentSpeed function so that the loading platform also has a speed factor;
      *
-     * @param loadingPlatform the car transports loading platform
-     * @param angle the angle which is going to be set for the loading platform
+     * @param speed the speed to be set.
      */
-    public void setLoadingPlatform(LoadingPlatform loadingPlatform, int angle) {
-        if (angle == 0 && getCurrentSpeed() == 0) {
-            loadingPlatform.setAngle(down);
-        } else {
-            loadingPlatform.setAngle(up);
-
-        }
+    @Override
+    public void setCurrentSpeed(double speed) {
+        super.setCurrentSpeed(speed);
+        loadingPlatform.speed = speed;
     }
 
     /**
@@ -63,7 +57,11 @@ public class CarTransport extends Truck {
      * @param vehicle the vehicle which will be added to the vehicle storage
      */
     public void addVehicle(Vehicle vehicle) {
-        v.addVehicle(vehicle);
+        if (getCurrentSpeed() == 0 && loadingPlatform.getAngle() == 90 && vehicle.getPosition() == this.getPosition()) {
+            v.addVehicle(vehicle);
+        } else {
+            System.out.print("Angle and speed must be 0 to load vehicles.");
+        }
     }
 
     /**
@@ -71,7 +69,12 @@ public class CarTransport extends Truck {
      * In this way the car transport is LIFO(last in first out).
      */
     public void removeVehicle() {
-        v.removeVehicle(v.getVehicles().size()-1);
+        if (getCurrentSpeed() == 0 && loadingPlatform.getAngle() == 90) {
+            Vehicle removedVehicle = v.removeVehicle(v.getVehicles().size()-1);
+            removedVehicle.setPosition(new Point2D.Double(getPosition().getX(), getPosition().getY()));
+        } else {
+            System.out.print("Angle and speed must be 0 to remove vehicles.");
+        }
     }
 
 }
