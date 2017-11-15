@@ -25,7 +25,7 @@ public class LoadingPlatform {
 		setAngle(0);
 		setMaxAngle(90);
 		setMinAngle(0);
-		speed = this.speed;
+		this.speed = speed;
 	}
 
 	/**
@@ -37,7 +37,11 @@ public class LoadingPlatform {
 	 */
 	public LoadingPlatform(double speed, int maxAngle, int minAngle) {
 		speed = this.speed;
-	    setAngle(0);
+		if (minAngle <= 0) {
+			setAngle(0);
+		} else {
+			setAngle(minAngle);
+		}
 		setMaxAngle(maxAngle);
 		setMinAngle(minAngle);
 	}

@@ -188,16 +188,20 @@ public class VehicleStorage {
 	 *
 	 * @param i the index of the vehicle to be removed
 	 */
-	public Vehicle removeVehicle(int i) {
+	public void removeVehicle(int i) {
 		if (vehicles.size() != 0) {
 			Vehicle v = vehicles.remove(i);
 			vehicleCount--;
 			setCurrentStorageSpaceLeft(getCurrentStorageSpaceLeft() + v.getTransportSize());
-			setPosition(new Point2D.Double(getPosition().getX() - 10, getPosition().getY()) - 10);
-			return v;
+
+			double newX, newY;
+			newX = getPosition().getX() - 10;
+			newY = getPosition().getY() - 10;
+			setPosition(new Point2D.Double(newX, newY));
 		} else {
 			System.out.println("There are no more vehicles to remove");
 			//TODO: change println to catch/throw error
+
 		}
 	}
 

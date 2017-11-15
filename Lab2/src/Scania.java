@@ -1,6 +1,15 @@
 import java.awt.*;
 import static java.awt.Color.*;
 
+/**
+ * This class represents a Scania truck, which extends the abstract class truck,
+ * which extends vehicle, which extends Transport which implements moveable.
+ * When a Scania object is created, all instance variables are initialized according
+ * to Scania's unique values (see constructor).
+ *
+ * @author SaraLandfors
+ * @version 1.0
+ */
 public class Scania extends Truck {
 
 	public Scania() {
@@ -13,8 +22,10 @@ public class Scania extends Truck {
 		setNrDoors(2);
 		setColor(Color.BLUE);
 		setModelName("Tekno Scania 142H");
-		loadingPlatform = new LoadingPlatform(0,70);
+		setLoadingPlatform(new LoadingPlatform(getCurrentSpeed(), 0, 70));
 	}
+
+
 
 
 }
