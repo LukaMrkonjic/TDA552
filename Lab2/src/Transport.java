@@ -14,8 +14,6 @@ public abstract class Transport implements Movable {
 	private double transportSize;
 	private double maxStorageSpace;
 
-
-
     /**
      * @return the current position.
      */
@@ -254,11 +252,17 @@ public abstract class Transport implements Movable {
         }
     }
 
-    public double getMaxStorageSpace() {
+	/**
+	 * @return maxStorageSpace
+	 */
+	public double getMaxStorageSpace() {
         return maxStorageSpace;
     }
 
-    public void setMaxStorageSpace(double maxStorageSpace) {
+	/**
+	 * @param maxStorageSpace the maxStorageSpace to be set
+	 */
+	public void setMaxStorageSpace(double maxStorageSpace) {
         this.maxStorageSpace = maxStorageSpace;
     }
 }

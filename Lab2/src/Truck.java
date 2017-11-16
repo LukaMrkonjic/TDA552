@@ -4,7 +4,6 @@ public abstract class Truck extends Vehicle {
 	LoadingPlatform loadingPlatform;            //The truck has a LoadingPlatform
 
 
-
 	/**
 	 *
 	 * @param loadingPlatform the LoadingPlatform to be set for the

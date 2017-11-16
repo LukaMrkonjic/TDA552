@@ -9,7 +9,6 @@ import java.awt.geom.Point2D;
  */
 public class CarTransport extends Truck {
 		//Instance variables
-        LoadingPlatform loadingPlatform;
         final int down = 90;
         final int up = 0;
 
