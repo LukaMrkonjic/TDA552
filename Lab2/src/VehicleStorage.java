@@ -23,8 +23,7 @@ public class VehicleStorage {
 	/**
 	 * The constructor for a VehicleStorage takes in a certain number of parameters that are
 	 * decided by the Transport that will have a VehicleStorage, such as maxSizeOfOneVehicle,
-	 * maxStorageSpace (in sqm), as well as a LinkedList to store the Vehicles in.
-	 *
+	 * maxStorageSpace (in sqm).
 	 *
 	 *
 	 * @param maxStorageSpace is the max number of sqm that the VehicleStorage can load with Vehicles
@@ -33,7 +32,7 @@ public class VehicleStorage {
 	public VehicleStorage(double maxStorageSpace, double maxSizeOfOneVehicle) {
 		setMaxStorageSpace(maxStorageSpace);
 		setMaxSizeOfOneVehicle(maxSizeOfOneVehicle);
-		setVehicles(vehicles);
+		setVehicles(new LinkedList<Vehicle>());
 	}
 
 	/**
@@ -197,7 +196,7 @@ public class VehicleStorage {
 			double newX, newY;
 			newX = getPosition().getX() - 10;
 			newY = getPosition().getY() - 10;
-			setPosition(new Point2D.Double(newX, newY));
+			v.setPosition(new Point2D.Double(newX, newY));
 		} else {
 			System.out.println("There are no more vehicles to remove");
 			//TODO: change println to catch/throw error

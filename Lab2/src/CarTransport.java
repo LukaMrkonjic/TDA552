@@ -14,7 +14,6 @@ public class CarTransport extends Truck {
         final int up = 0;
 
         VehicleStorage v;
-        double maxSizeOfOneVehicle;
 
     /**
      * The constructor for a CarTransport sets up a default car transport with
@@ -23,10 +22,9 @@ public class CarTransport extends Truck {
      */
     public CarTransport() {
             setMaxStorageSpace(250);
-            maxSizeOfOneVehicle = 40;
             loadingPlatform = new LoadingPlatform(getCurrentSpeed(), down, up);
             loadingPlatform.setAngle(up);
-            v = new VehicleStorage(maxStorageSpace, maxSizeOfOneVehicle);
+            v = new VehicleStorage(getMaxStorageSpace(), 40);
     }
 
     /**
@@ -74,7 +72,7 @@ public class CarTransport extends Truck {
      */
     public void removeVehicle() {
         if (getCurrentSpeed() == 0 && loadingPlatform.getAngle() == 90) {
-            Vehicle removedVehicle = v.removeVehicle(v.getVehicles().size()-1);
+			v.removeVehicle(v.getVehicles().size()-1);
         } else {
             System.out.print("Angle and speed must be 0 to remove vehicles.");
         }

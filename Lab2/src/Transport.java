@@ -12,6 +12,7 @@ public abstract class Transport implements Movable {
     private Color color; // Color of the transport
     private String modelName; // The transport model name
 	private double transportSize;
+	private double maxStorageSpace;
 
 
 
@@ -251,6 +252,14 @@ public abstract class Transport implements Movable {
         } else {
             //TODO: Fix for case of invalid direction
         }
+    }
+
+    public double getMaxStorageSpace() {
+        return maxStorageSpace;
+    }
+
+    public void setMaxStorageSpace(double maxStorageSpace) {
+        this.maxStorageSpace = maxStorageSpace;
     }
 }
 

@@ -2,15 +2,7 @@ public abstract class Truck extends Vehicle {
 
 	//instance variables
 	LoadingPlatform loadingPlatform;            //The truck has a LoadingPlatform
-	double maxStorageSpace;
 
-	public double getMaxStorageSpace() {
-		return maxStorageSpace;
-	}
-
-	public void setMaxStorageSpace(double maxStorageSpace) {
-		this.maxStorageSpace = maxStorageSpace;
-	}
 
 
 	/**
