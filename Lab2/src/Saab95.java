@@ -23,6 +23,7 @@ public class Saab95 extends Car {
         setPosition(new Point(0,0));
         setDirection(new Point(0,1));
         setSpeedFactor(getSpeedFactor());
+        setIsMoveable(true);
     }
 
     /**

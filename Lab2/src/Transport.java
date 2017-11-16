@@ -13,6 +13,7 @@ public abstract class Transport implements Movable {
     private String modelName; // The transport model name
 	private double transportSize;
 	private double maxStorageSpace;
+	private boolean isMovable;
 
     /**
      * @return the current position.
@@ -195,15 +196,19 @@ public abstract class Transport implements Movable {
      * its position. The distance it's moved depends on its current speed.
      */
     public void move() {
-        double x, y;
-        x = getPosition().getX();
-        y = getPosition().getY();
+    	if (isMoveable()) {
+			double x, y;
+			x = getPosition().getX();
+			y = getPosition().getY();
 
-        x = x + getCurrentSpeed() * getDirection().getX();
-        y = y + getCurrentSpeed() * getDirection().getY();
+			x = x + getCurrentSpeed() * getDirection().getX();
+			y = y + getCurrentSpeed() * getDirection().getY();
 
-        Point2D.Double newPosition = new Point2D.Double(x, y);
-        setPosition(newPosition);
+			Point2D.Double newPosition = new Point2D.Double(x, y);
+			setPosition(newPosition);
+		} else {
+    		System.out.println("Can't move transport when IsMoveable == false.");
+		}
     }
 
     /**
@@ -265,6 +270,14 @@ public abstract class Transport implements Movable {
 	public void setMaxStorageSpace(double maxStorageSpace) {
         this.maxStorageSpace = maxStorageSpace;
     }
+
+	public boolean isMoveable() {
+		return isMovable;
+	}
+
+	public void setIsMoveable(boolean moveable) {
+		isMovable = moveable;
+	}
 }
 
 

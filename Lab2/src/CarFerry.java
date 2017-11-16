@@ -16,6 +16,7 @@ public class CarFerry extends Ferry {
 		setLoadingPlatform(new LoadingPlatform(getCurrentSpeed(), down, up));
     	setMaxStorageSpace(1000);
         setVehicleStorage(new VehicleStorage(getMaxStorageSpace(), 80));
+        setIsMoveable(true);
     }
 
 	public LoadingPlatform getLoadingPlatform() {

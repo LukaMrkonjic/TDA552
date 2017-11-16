@@ -173,6 +173,7 @@ public class VehicleStorage {
 			vehicles.add(v);
 			vehicleCount++;
 			setCurrentStorageSpaceLeft(getCurrentStorageSpaceLeft() - v.getTransportSize());
+			v.setIsMoveable(false);
 		} else {
 			System.out.println("Can't load vehicles of specified size onto this VehicleStorage. Max size of one" +
 					" vehicle is set to " + getMaxSizeOfOneVehicle() + " and current available space" +
@@ -197,6 +198,7 @@ public class VehicleStorage {
 			newX = getPosition().getX() - 10;
 			newY = getPosition().getY() - 10;
 			v.setPosition(new Point2D.Double(newX, newY));
+			v.setIsMoveable(true);
 		} else {
 			System.out.println("There are no more vehicles to remove");
 			//TODO: change println to catch/throw error

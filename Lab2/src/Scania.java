@@ -23,6 +23,7 @@ public class Scania extends Truck {
 		setColor(Color.BLUE);
 		setModelName("Tekno Scania 142H");
 		setLoadingPlatform(new LoadingPlatform(getCurrentSpeed(), 0, 70));
+		setIsMoveable(true);
 	}
 
 

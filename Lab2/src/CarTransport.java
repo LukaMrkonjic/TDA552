@@ -20,10 +20,11 @@ public class CarTransport extends Truck {
      * with a max storage space and a max size per vehicle.
      */
     public CarTransport() {
-            setMaxStorageSpace(250);
-            loadingPlatform = new LoadingPlatform(getCurrentSpeed(), down, up);
-            loadingPlatform.setAngle(up);
-            v = new VehicleStorage(getMaxStorageSpace(), 40);
+		setMaxStorageSpace(250);
+		loadingPlatform = new LoadingPlatform(getCurrentSpeed(), down, up);
+		loadingPlatform.setAngle(up);
+		v = new VehicleStorage(getMaxStorageSpace(), 40);
+		setIsMoveable(true);
     }
 
     /**
