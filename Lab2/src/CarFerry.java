@@ -13,7 +13,7 @@ public class CarFerry extends Ferry {
 	 * Constructor for CarFerry.
 	 */
     public CarFerry() {
-		setLoadingPlatform(new LoadingPlatform(getCurrentSpeed()), down, up);
+		setLoadingPlatform(new LoadingPlatform(getCurrentSpeed(), down, up));
     	setMaxStorageSpace(1000);
         setVehicleStorage(new VehicleStorage(getMaxStorageSpace(), 80));
     }
