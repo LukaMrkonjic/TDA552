@@ -29,7 +29,8 @@ public abstract class Truck extends Vehicle {
 		} else if (currentSpeed > getEnginePower()) {
 			setCurrentSpeed(getEnginePower());
 		} else {
-			this.setCurrentSpeed(currentSpeed);
+			super.setCurrentSpeed(currentSpeed);
+			//this.setCurrentSpeed(currentSpeed);
 		}
 
 	}

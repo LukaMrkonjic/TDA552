@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.Point2D;
 
 import static org.junit.Assert.*;
 
@@ -14,8 +15,8 @@ public class Saab95Test {
     public void move() throws Exception {
         saab.incrementSpeed(1);
         saab.move();
-        Point afterMoveExp= new Point(0,1);
-        Point afterMoveAct=new Point();
+        Point2D afterMoveExp= new Point2D.Double(0,1);
+        Point2D afterMoveAct=new Point2D.Double();
         afterMoveAct=saab.getPosition();
         assertEquals(afterMoveExp, afterMoveAct);
     }

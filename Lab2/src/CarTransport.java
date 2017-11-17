@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.geom.Point2D;
 
 /**
@@ -9,6 +10,7 @@ import java.awt.geom.Point2D;
  */
 public class CarTransport extends Truck {
 		//Instance variables
+
         final int down = 90;
         final int up = 0;
 
@@ -20,7 +22,10 @@ public class CarTransport extends Truck {
      * with a max storage space and a max size per vehicle.
      */
     public CarTransport() {
+        setTransportSize(45);
 		setMaxStorageSpace(250);
+        setPosition(new Point(0,0));
+        setDirection(new Point(0,1));
 		loadingPlatform = new LoadingPlatform(getCurrentSpeed(), down, up);
 		loadingPlatform.setAngle(up);
 		v = new VehicleStorage(getMaxStorageSpace(), 40);
@@ -59,7 +64,7 @@ public class CarTransport extends Truck {
     		System.out.print("ERROR: CarTransport cannot add itself!");
 
     		//TODO: överväg att göra detta till en egen hjälpmetod, t ex private bool vehicleIsLoadable():
-		} else if (getCurrentSpeed() == 0 && loadingPlatform.getAngle() == 90 && vehicle.getPosition() == this.getPosition()) {
+		} else if (getCurrentSpeed() == 0 && loadingPlatform.getAngleIsZero() && vehicle.getPosition().equals(this.getPosition())) {
             v.addVehicle(vehicle);
         } else {
             System.out.print("Angle and speed must be 0 to load vehicles.");
