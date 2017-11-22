@@ -1,6 +1,8 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 /*
@@ -14,6 +16,7 @@ public class CarController {
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
+
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
@@ -43,8 +46,9 @@ public class CarController {
     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
+            for (Vehicle car : cars) {
                 car.move();
+                if ()
                 int x = (int) Math.round(car.getPosition().getX());
                 int y = (int) Math.round(car.getPosition().getY());
                 frame.drawPanel.moveit(x, y);
@@ -53,6 +57,33 @@ public class CarController {
             }
         }
     }
+
+    private boolean isOutOfBounds(Vehicle v) {
+		Point2D.Double position = v.getPosition();
+		if(xIsOutOfBounds(position) || yIsOutOfBounds(position)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	private boolean xIsOutOfBounds(Point2D.Double p) {
+    	double x = p.getX();
+    	if (x < 0 || x > frame.getDrawPanel().getX()) {
+    		return false;
+		} else {
+    		return true;
+		}
+	}
+
+	private boolean yIsOutOfBounds(Point2D.Double p) {
+		double y = p.getY();
+    	if (y < 0 || y > frame.getDrawPanel().getY()) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
     // Calls the gas method for each car once
     void gas(int amount) {
