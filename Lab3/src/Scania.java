@@ -15,7 +15,7 @@ public class Scania extends Truck {
 
     public Scania() {
         setTransportSize(21.2);
-        setPosition(new Point(50, 50));    //starting position of a new Scania Truck
+        setPosition(new Point(0, 200));    //starting position of a new Scania Truck
         setDirection(new Point(1, 0));    //starting direction set to East
         setSpeedFactor(2);
         setEnginePower(0.8);
