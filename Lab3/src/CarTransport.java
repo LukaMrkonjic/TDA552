@@ -43,6 +43,12 @@ public class CarTransport extends Truck {
         v.setPosition(this.getPosition());
     }
 
+	@Override
+	public void setPosition(Point position) {
+		super.setPosition(position);
+		v.setPosition(position);
+	}
+
     /**
      * Redefines the setCurrentSpeed function so that the loading platform also has a speed factor;
      *
