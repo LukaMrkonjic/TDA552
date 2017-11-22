@@ -128,6 +128,22 @@ public class CarController {
 		}
 	}
 
+	//TODO:fixa denna
+	public void setTurbo(boolean b){
+		for (Vehicle v : getVehicles()) {
+			if (v instanceof Saab95) {
+				Saab95 s = (Saab95) v;
+				if (b) {
+					s.setTurboOn();
+				} else {
+					s.setTurboOff();
+				}
+			}
+		}
+
+
+	}
+
 	public void lowerBed() {
 		  setBed(false);
 	}
