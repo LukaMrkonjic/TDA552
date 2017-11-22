@@ -26,8 +26,8 @@ public class CarTransport extends Truck {
 		setMaxStorageSpace(250);
         setPosition(new Point(0,0));
         setDirection(new Point(0,1));
-		loadingPlatform = new LoadingPlatform(getCurrentSpeed(), down, up);
-		loadingPlatform.setAngle(up);
+		setLoadingPlatform(new LoadingPlatform(getCurrentSpeed(), down, up));
+		getLoadingPlatform().setAngle(up);
 		v = new VehicleStorage(getMaxStorageSpace(), 40);
 		setIsMoveable(true);
     }
@@ -58,7 +58,7 @@ public class CarTransport extends Truck {
     @Override
     public void setCurrentSpeed(double speed) {
         super.setCurrentSpeed(speed);
-        loadingPlatform.speed = speed;
+        getLoadingPlatform().speed = speed;
     }
 
     /**
@@ -71,7 +71,7 @@ public class CarTransport extends Truck {
     		System.out.print("ERROR: CarTransport cannot add itself!");
 
     		//TODO: överväg att göra detta till en egen hjälpmetod, t ex private bool vehicleIsLoadable():
-		} else if (getCurrentSpeed() == 0 && loadingPlatform.getAngleIsZero() && vehicle.getPosition().equals(this.getPosition())) {
+		} else if (getCurrentSpeed() == 0 && getLoadingPlatform().getAngleIsZero() && vehicle.getPosition().equals(this.getPosition())) {
             v.addVehicle(vehicle);
         } else {
             System.out.print("Angle and speed must be 0 to load vehicles.");
@@ -83,7 +83,7 @@ public class CarTransport extends Truck {
      * In this way the car transport is LIFO(last in first out).
      */
     public void removeVehicle() {
-        if (getCurrentSpeed() == 0 && loadingPlatform.getAngle() == 90) {
+        if (getCurrentSpeed() == 0 && getLoadingPlatform().getAngle() == 90) {
 			v.removeVehicle(v.getVehicles().size()-1);
         } else {
             System.out.print("Angle and speed must be 0 to remove vehicles.");

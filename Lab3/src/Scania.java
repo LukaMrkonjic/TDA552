@@ -15,11 +15,11 @@ public class Scania extends Truck {
 
     public Scania() {
         setTransportSize(21.2);
-        setPosition(new Point(200, 200));    //starting position of a new Scania Truck
+        setPosition(new Point(200, 0));    //starting position of a new Scania Truck
         setDirection(new Point(1, 0));    //starting direction set to East
         setSpeedFactor(2);
         setEnginePower(0.8);
-        loadingPlatform = new LoadingPlatform(getCurrentSpeed());
+        setLoadingPlatform(new LoadingPlatform(getCurrentSpeed()));
 
         setNrDoors(2);
         setColor(Color.BLUE);
@@ -28,6 +28,8 @@ public class Scania extends Truck {
         setCurrentSpeed(0.0);
         setIsMoveable(true);
     }
+
+
 
 
 }

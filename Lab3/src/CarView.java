@@ -57,7 +57,7 @@ public class CarView extends JFrame{
 		turboOnButton = new JButton("Saab Turbo on");
 		turboOffButton = new JButton("Saab Turbo off");
 		liftBedButton = new JButton("Scania Lift Bed");
-		lowerBedButton = new JButton("Lower Lift Bed");
+		lowerBedButton = new JButton("Scania Lower Bed");
 		startButton = new JButton("Start all cars");
 		stopButton = new JButton("Stop all cars");
 		initComponents(framename);
@@ -126,7 +126,22 @@ public class CarView extends JFrame{
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
-        getGasButton().addActionListener(new ActionListener() {
+        getStopButton().addActionListener(new ActionListener() {
+        	@Override
+			public void actionPerformed(ActionEvent e) {
+        		carC.stopAllCars();
+			}
+		});
+
+		getStartButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				carC.startAllCars();
+			}
+		});
+
+
+		getGasButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.gas(gasAmount);
@@ -139,6 +154,20 @@ public class CarView extends JFrame{
                 carC.brake(gasAmount);
             }
         });
+
+        getLowerBedButton().addActionListener(new ActionListener() {
+        	@Override
+			public void actionPerformed(ActionEvent e) {
+        		carC.lowerBed();
+        	}
+		});
+
+        getLiftBedButton().addActionListener(new ActionListener(){
+        	@Override
+			public void actionPerformed(ActionEvent e) {
+        		carC.liftBed();
+			}
+		});
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();

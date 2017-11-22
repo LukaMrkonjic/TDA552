@@ -20,7 +20,7 @@ public class Saab95 extends Car {
 	    setTurboOff();
         setModelName("Saab95");
         stopEngine();
-        setPosition(new Point(100,100));
+        setPosition(new Point(100,0));
         setDirection(new Point(0,1));
         setSpeedFactor(getSpeedFactor());
         setIsMoveable(true);

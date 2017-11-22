@@ -14,7 +14,7 @@ public class TransportTest {
         CarFerry cf = new CarFerry();
         System.out.println(Saab.getPosition());
         System.out.println(ct.getPosition());
-        ct.loadingPlatform.setAngle(0);
+        ct.getLoadingPlatform().setAngle(0);
         ct.addVehicle(Saab);
         /*
         ct.setEnginePower(200.0);
