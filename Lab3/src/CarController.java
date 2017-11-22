@@ -14,19 +14,10 @@ import java.util.ArrayList;
 public class CarController {
     // member fields:
 
-    // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
-
-    // The timer is started with an listener (see below) that executes the statements
-    // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
-
-    // The frame that represents this instance View of the MVC pattern
-    CarView frame;
-    // A list of cars, modify if needed
-    ArrayList<Vehicle> cars = new ArrayList<>();
-
-    //methods:
+    private final int delay = 50;  // The delay (ms) corresponds to 20 updates a sec (hz)
+    private Timer timer = new Timer(delay, new TimerListener()); // The timer is started with an listener (see below) that executes the statements each step between delays.
+    CarView frame; // The frame that represents this instance View of the MVC pattern
+    ArrayList<Vehicle> cars = new ArrayList<>(); // A list of cars, modify if needed
 
     public static void main(String[] args) {
         // Instance of this class
