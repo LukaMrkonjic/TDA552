@@ -62,6 +62,12 @@ public class CarFerry extends Ferry {
         loadingPlatform.speed = speed;
     }
 
+    @Override
+	public void setPosition(Point position) {
+    	super.setPosition(position);
+		v.setPosition(position);
+	}
+
     /**
      * Adds a chosen vehicle to the vehicle storage.
      *
