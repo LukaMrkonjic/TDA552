@@ -65,7 +65,8 @@ public class CarFerry extends Ferry {
     @Override
 	public void setPosition(Point position) {
     	super.setPosition(position);
-		v.setPosition(position);
+		Point2D.Double p = new Point2D.Double(position.getX(), position.getY());
+		v.setPosition(p);
 	}
 
     /**
