@@ -87,19 +87,19 @@ public class CarController {
 
 	private boolean xIsOutOfBounds(Point2D.Double p) {
     	double x = p.getX();
-    	if (x < 0 || x > frame.getDrawPanel().getX()) {
-    		return false;
-		} else {
+    	if (x < 0 || x > frame.getDrawPanel().getSize().getWidth() - 100) {
     		return true;
+		} else {
+    		return false;
 		}
 	}
 
 	private boolean yIsOutOfBounds(Point2D.Double p) {
 		double y = p.getY();
-    	if (y < 0 || y > frame.getDrawPanel().getY()) {
-			return false;
-		} else {
+    	if (y < 0 || y > frame.getDrawPanel().getSize().getHeight() - 60) {
 			return true;
+		} else {
+			return false;
 		}
 	}
 
