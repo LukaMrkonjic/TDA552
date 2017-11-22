@@ -63,6 +63,7 @@ public class CarView extends JFrame{
 		initComponents(framename);
     }
 
+
     public DrawPanel getDrawPanel() {
         return drawPanel;
     }
