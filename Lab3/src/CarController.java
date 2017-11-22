@@ -50,9 +50,16 @@ public class CarController {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle car : cars) {
                 car.move();
-                if ()
-                int x = (int) Math.round(car.getPosition().getX());
-                int y = (int) Math.round(car.getPosition().getY());
+
+                if (isOutOfBounds(car)) {
+					invertDirection(car);
+					car.move();
+					car.move();
+				}
+
+				int x = (int) Math.round(car.getPosition().getX());
+				int y = (int) Math.round(car.getPosition().getY());
+
                 frame.getDrawPanel().moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.getDrawPanel().repaint();
@@ -60,9 +67,18 @@ public class CarController {
         }
     }
 
+
+
+    private void invertDirection(Vehicle v) {
+    	Point direction = v.getDirection();
+    	direction.x = -1 * direction.x;
+		direction.y = -1 * direction.y;
+		v.setDirection(direction);
+	}
+
     private boolean isOutOfBounds(Vehicle v) {
 		Point2D.Double position = v.getPosition();
-		if(xIsOutOfBounds(position) || yIsOutOfBounds(position)) {
+		if(xIsOutOfBounds(position) || yIsOutOfBounds(position) ) {
 			return true;
 		} else {
 			return false;
