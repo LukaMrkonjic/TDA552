@@ -4,7 +4,6 @@ public abstract class Truck extends Vehicle {
 	LoadingPlatform loadingPlatform;            //The truck has a LoadingPlatform
 
 
-
 	/**
 	 *
 	 * @param loadingPlatform the LoadingPlatform to be set for the
@@ -30,7 +29,8 @@ public abstract class Truck extends Vehicle {
 		} else if (currentSpeed > getEnginePower()) {
 			setCurrentSpeed(getEnginePower());
 		} else {
-			this.setCurrentSpeed(currentSpeed);
+			super.setCurrentSpeed(currentSpeed);
+			//this.setCurrentSpeed(currentSpeed);
 		}
 
 	}
