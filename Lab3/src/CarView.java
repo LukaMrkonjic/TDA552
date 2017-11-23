@@ -40,6 +40,8 @@ public class CarView extends JFrame{
 	private JButton startButton;
 	private JButton stopButton;
 
+	private JButton turnRightButton;
+	private JButton turnLeftButton;
     // Constructor
     public CarView(String framename, CarController cc){
         this.carC = cc;
@@ -49,7 +51,7 @@ public class CarView extends JFrame{
 		setControlPanel(new JPanel());
 
 		setGasPanel(new JPanel());
-		gasSpinner = new JSpinner();
+		setGasSpinner(new JSpinner());
 		gasAmount = 0;
 		gasLabel = new JLabel("Amount of gas");
 		gasButton = new JButton("Gas");
@@ -60,6 +62,8 @@ public class CarView extends JFrame{
 		lowerBedButton = new JButton("Scania Lower Bed");
 		startButton = new JButton("Start all cars");
 		stopButton = new JButton("Stop all cars");
+		turnRightButton = new JButton("Turn Left"); //For UI reasons, the buttons' names are inverted.
+		turnLeftButton = new JButton("Turn Right"); // This is because of the inverted nature of the x,y-grid of the frame.
 		initComponents(framename);
     }
 
@@ -72,8 +76,9 @@ public class CarView extends JFrame{
         this.drawPanel = drawPanel;
     }
 
-    // Sets everything in place and fits everything
-    // TODO: Take a good look and make sure you understand how these methods and components work
+	/**
+	 * Sets everything in place and fits everything
+	 */
     private void initComponents(String title) {
 
         this.setTitle(title);
@@ -105,9 +110,12 @@ public class CarView extends JFrame{
 		getControlPanel().add(gasButton, 0);
 		getControlPanel().add(turboOnButton, 1);
 		getControlPanel().add(liftBedButton, 2);
-		getControlPanel().add(brakeButton, 3);
-		getControlPanel().add(turboOffButton, 4);
-		getControlPanel().add(lowerBedButton, 5);
+		getControlPanel().add(turnLeftButton,3);
+		getControlPanel().add(brakeButton, 4);
+		getControlPanel().add(turboOffButton, 5);
+		getControlPanel().add(lowerBedButton, 6);
+		getControlPanel().add(turnRightButton, 7);
+
 		getControlPanel().setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(getControlPanel());
 		getControlPanel().setBackground(Color.CYAN);
@@ -124,8 +132,21 @@ public class CarView extends JFrame{
 		getStopButton().setPreferredSize(new Dimension(X/5-15,200));
         this.add(getStopButton());
 
-        // This actionListener is for the gas button only
-        // TODO: Create more for each component as necessary
+
+        getTurnLeftButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				carC.turnLeft();
+			}
+		});
+
+		getTurnRightButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				carC.turnRight();
+			}
+		});
+
         getStopButton().addActionListener(new ActionListener() {
         	@Override
 			public void actionPerformed(ActionEvent e) {
@@ -297,5 +318,21 @@ public class CarView extends JFrame{
 
 	public void setStopButton(JButton stopButton) {
 		this.stopButton = stopButton;
+	}
+
+	public JButton getTurnRightButton() {
+		return turnRightButton;
+	}
+
+	public void setTurnRightButton(JButton turnRightButton) {
+		this.turnRightButton = turnRightButton;
+	}
+
+	public JButton getTurnLeftButton() {
+		return turnLeftButton;
+	}
+
+	public void setTurnLeftButton(JButton turnLeftButton) {
+		this.turnLeftButton = turnLeftButton;
 	}
 }

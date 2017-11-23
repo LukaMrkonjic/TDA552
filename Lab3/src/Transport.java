@@ -168,14 +168,14 @@ public abstract class Transport implements Movable {
      * Increments speed with a variable amount.
      */
     public void incrementSpeed(double amount) {
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor * amount, enginePower);
+        setCurrentSpeed( Math.min(getCurrentSpeed() + getSpeedFactor()* amount, getEnginePower()));
     }
 
     /**
      * Decrements speed with a variable amount.
      */
     public void decrementSpeed(double amount) {
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor * amount, 0);
+        setCurrentSpeed( Math.max(getCurrentSpeed() - getSpeedFactor() * amount, 0));
     }
 
     public void gas(double amount) {
