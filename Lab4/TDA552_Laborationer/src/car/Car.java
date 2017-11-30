@@ -1,6 +1,7 @@
 package car;
 
 import enums.Direction;
+import interfaces.Drawable;
 import interfaces.Movable;
 
 import javax.imageio.ImageIO;
@@ -13,7 +14,7 @@ import java.io.IOException;
  * This class has a combination of abstract and non-abstract methods.
  * It defines the core features of a car.
  */
-public abstract class Car implements Movable {
+public abstract class Car implements Movable, Drawable {
 
     /**
      * The direction the car is facing.

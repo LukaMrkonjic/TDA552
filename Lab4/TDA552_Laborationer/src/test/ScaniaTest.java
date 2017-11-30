@@ -1,3 +1,4 @@
+/*
 package test;
 
 import car.Scania;
@@ -5,9 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Created by phiwar on 2017-11-03.
- */
 class ScaniaTest {
 
     @Test
@@ -31,3 +29,4 @@ class ScaniaTest {
     }
 
 }
+*/

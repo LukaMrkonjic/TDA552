@@ -1,9 +1,6 @@
 package labtwo;
 
-import car.Car;
-import car.Saab95;
-import car.Scania;
-import car.Volvo240;
+import car.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -37,9 +34,10 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        Volvo240 volvo = new Volvo240();
-        Saab95 saab = new Saab95();
-        Scania scania = new Scania();
+        Car volvo  = CarFactory.createVolvo240();
+        Car saab   = CarFactory.createSaab95();
+        Car scania = CarFactory.createScania();
+
         saab.setY(100 + volvo.getHeight() + volvo.getY());
         scania.setY(100 + saab.getHeight() + saab.getY());
         cc.cars.add(volvo);
@@ -60,7 +58,7 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {
-                frame.drawPanel.moveCar(car);
+                moveCar(car);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -72,7 +70,7 @@ public class CarController {
      *
      * @param amount The amount of which the car will gas [0, 100].
      */
-    void gas(int amount) {
+    public void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (Car car : cars) {
             car.gas(gas);
@@ -84,7 +82,7 @@ public class CarController {
      *
      * @param amount The amount of which the car will brake [0, 100].
      */
-    void brake(int amount) {
+    public  void brake(int amount) {
         double brake = ((double) amount) / 100;
         for (Car car : cars) {
             car.brake(brake);
@@ -96,10 +94,10 @@ public class CarController {
      *
      * @param turbo If the turbo should be turned on or off.
      */
-    void setTurbo(boolean turbo) {
+    public void setTurbo(boolean turbo) {
 
         for (Car car : cars) {
-            if (car.isTheSameModel(new Saab95())) {
+            if (car.isTheSameModel(CarFactory.createSaab95())) {
                 Saab95 saab = (Saab95) car;
                 if (turbo) {
                     saab.setTurboOn();
@@ -115,10 +113,10 @@ public class CarController {
      *
      * @param lift If the ramp should be raised or not.
      */
-    void liftRamp(boolean lift) {
+    public void liftRamp(boolean lift) {
 
         for (Car car : cars) {
-            if (car.isTheSameModel(new Scania())) {
+            if (car.isTheSameModel(CarFactory.createScania())) {
                 Scania scania = (Scania) car;
                 if (lift) {
                     scania.setPlatformAngle(70);
@@ -127,6 +125,66 @@ public class CarController {
                 }
             }
         }
+    }
+
+    // Checks for wall collision
+    private boolean wallCollision(Car car) {
+
+        switch (car.getDirection()) {
+
+            case NORTH:
+                return car.getY() < 0;
+
+            case EAST:
+                return car.getX() + car.getWidth() > frame.getWidth();
+
+            case SOUTH:
+                return car.getY() + car.getHeight() > frame.getHeight();
+
+            case WEST:
+                return car.getX() < 0;
+        }
+
+        return false;
+    }
+
+    /**
+     * Moves the car in its direction and flips it if a wall collision occurs.
+     *
+     * @param car The car to move.
+     */
+    void moveCar(Car car) {
+
+        car.move();
+
+        if (wallCollision(car)) {
+            car.stopEngine();
+
+            car.flip();
+
+            switch (car.getDirection()) {
+
+                case NORTH:
+                    car.setY(0);
+                    break;
+
+                case EAST:
+                    car.setX(0);
+                    break;
+
+                case SOUTH:
+                    car.setY(frame.getHeight() - car.getHeight());
+                    break;
+
+                case WEST:
+                    car.setX(frame.getWidth() - car.getWidth());
+                    break;
+
+            }
+
+            car.startEngine();
+        }
+
     }
 
 }

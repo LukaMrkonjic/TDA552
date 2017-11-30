@@ -1,3 +1,4 @@
+/*
 package test;
 
 import car.Volvo240;
@@ -14,3 +15,4 @@ class Volvo240Test {
     }
 
 }
+*/

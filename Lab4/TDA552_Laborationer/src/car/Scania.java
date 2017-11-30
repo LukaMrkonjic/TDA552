@@ -14,8 +14,8 @@ public class Scania extends Car {
      * Calls the super class constructor and
      * sets the specifications to those of a Scania truck.
      */
-    public Scania() {
-        super(2, 90, Color.RED, "Scania", "res\\Scania.jpg");
+    public Scania(String imagePath) {
+        super(2, 90, Color.RED, "Scania", imagePath);
     }
 
     @Override

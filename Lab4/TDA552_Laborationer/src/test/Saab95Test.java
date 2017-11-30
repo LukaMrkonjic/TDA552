@@ -1,4 +1,6 @@
+/*
 package test;
+
 
 import car.Saab95;
 import org.junit.jupiter.api.Test;
@@ -17,3 +19,4 @@ class Saab95Test {
     }
 
 }
+*/

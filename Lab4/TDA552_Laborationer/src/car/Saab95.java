@@ -13,8 +13,8 @@ public class Saab95 extends Car {
      * Calls the super class constructor and
      * sets the specifications to those of a Saab 95.
      */
-    public Saab95() {
-        super(2, 125, Color.RED, "Saab95", "res\\Saab95.jpg");
+    public Saab95(String imagePath) {
+        super(2, 125, Color.RED, "Saab95", imagePath);
         turboOn = false;
     }
 

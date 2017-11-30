@@ -1,3 +1,4 @@
+/*
 package test;
 
 import car.CarTransport;
@@ -10,9 +11,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-/**
- * Created by phiwar on 2017-11-07.
- */
 class CarTransportTest {
 
     @Test
@@ -146,3 +144,4 @@ class CarTransportTest {
     }
 
 }
+*/

@@ -1,4 +1,4 @@
-package test;
+/*package test;
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
@@ -7,7 +7,7 @@ import org.junit.runner.notification.Failure;
 
 /**
  * Created by phiwar on 2017-11-02.
- */
+
 public class TestRunner {
 
     public static void main(String[] args) {
@@ -23,3 +23,4 @@ public class TestRunner {
     }
 
 }
+*/

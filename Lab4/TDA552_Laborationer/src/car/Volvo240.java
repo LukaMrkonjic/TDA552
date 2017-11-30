@@ -16,8 +16,8 @@ public class Volvo240 extends Car {
      * Calls the super class constructor and
      * sets the specifications to those of a Volvo 240.
      */
-    public Volvo240() {
-        super(4, 100, Color.BLACK, "Volvo240", "res\\Volvo240.jpg");
+    public Volvo240(String imagePath) {
+        super(4, 100, Color.BLACK, "Volvo240", imagePath);
     }
 
 

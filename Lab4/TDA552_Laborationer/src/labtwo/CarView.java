@@ -1,11 +1,13 @@
 package labtwo;
 
 import car.Car;
+import interfaces.Drawable;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -15,11 +17,12 @@ import java.awt.*;
  **/
 
 public class CarView extends JFrame {
-    private static final int X = 800;
-    private static final int Y = 800;
+    private static final int width = 800;
+    private static final int height = 800;
 
     // The controller member
     private CarController carController;
+
 
     final DrawPanel drawPanel;
 
@@ -30,15 +33,59 @@ public class CarView extends JFrame {
     private int gasAmount = 100;
     private final JLabel gasLabel = new JLabel("Amount of gas");
 
-    private final JButton gasButton = new JButton("Gas");
-    private final JButton brakeButton = new JButton("Brake");
-    private final JButton turboOnButton = new JButton("Saab Turbo on");
-    private final JButton turboOffButton = new JButton("Saab Turbo off");
-    private final JButton liftBedButton = new JButton("Raise Lift Bed");
-    private final JButton lowerBedButton = new JButton("Lower Lift Bed");
+    private JButton gasButton = new JButton("Gas");
+    private JButton brakeButton = new JButton("Brake");
+    private JButton turboOnButton = new JButton("Saab Turbo on");
+    private JButton turboOffButton = new JButton("Saab Turbo off");
+    private JButton liftBedButton = new JButton("Raise Lift Bed");
+    private JButton lowerBedButton = new JButton("Lower Lift Bed");
 
-    private final JButton startButton = new JButton("Start all cars");
-    private final JButton stopButton = new JButton("Stop all cars");
+    private JButton startButton = new JButton("Start all cars");
+    private JButton stopButton = new JButton("Stop all cars");
+
+    public void setGasButtonAction(JButton gasButton){
+        this.gasButton=gasButton;
+    }
+
+    private void setBrakeButtonAction(JButton brakeButton){
+        this.brakeButton=brakeButton;
+    }
+
+    public void setTurboOnButtonAction(JButton turboOnButton){
+        this.turboOnButton=turboOnButton;
+    }
+
+    public void setTurboOffButtonAction(JButton turboOffButton){
+        this.turboOffButton=turboOffButton;
+    }
+
+    public void setLiftBedButtonAction(JButton liftBedButton){
+        this.liftBedButton=liftBedButton;
+    }
+
+    public void setLowerBedButtonAction(JButton lowerBedButton){
+        this.lowerBedButton=lowerBedButton;
+    }
+
+    public void setStartButtonAction(JButton startButton){
+        this.startButton=startButton;
+    }
+
+    public void setStopButtonAction(JButton stopButton){
+        this.stopButton=stopButton;
+    }
+
+    public int getDrawPanelHeight(){
+        return drawPanel.getHeight();
+    }
+
+    public int getDrawPanelwidth(){
+        return drawPanel.getWidth();
+    }
+
+    public void addDrawable(Drawable drawable){
+        drawPanel.addDrawable(drawable);
+    }
 
     /**
      * Initializes the CarView.
@@ -47,7 +94,7 @@ public class CarView extends JFrame {
      * @param cc        The car controller.
      */
     public CarView(String frameName, CarController cc) {
-        drawPanel = new DrawPanel(X, Y - 240, cc);
+        drawPanel = new DrawPanel(width, height - 240, cc);
         this.carController = cc;
         initComponents(frameName);
     }
@@ -56,7 +103,7 @@ public class CarView extends JFrame {
     private void initComponents(String title) {
 
         this.setTitle(title);
-        this.setPreferredSize(new Dimension(X, Y));
+        this.setPreferredSize(new Dimension(width, height));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
@@ -90,20 +137,20 @@ public class CarView extends JFrame {
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
-        controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
+        controlPanel.setPreferredSize(new Dimension((width / 2) + 4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
 
 
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
-        startButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
+        startButton.setPreferredSize(new Dimension(width / 5 - 15, 200));
         this.add(startButton);
 
 
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
-        stopButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
+        stopButton.setPreferredSize(new Dimension(width / 5 - 15, 200));
         this.add(stopButton);
 
         //------------ Action Listeners ------------//
@@ -154,4 +201,5 @@ public class CarView extends JFrame {
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
 }
