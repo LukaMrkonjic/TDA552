@@ -49,7 +49,61 @@ public class CarController {
 
         // Start the timer
         cc.timer.start();
+    }
 
+    public CarController() {
+        frame.setGasButtonAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gas(100);
+            }
+        });
+        frame.setBrakeButtonAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                brake(100);
+            }
+        });
+        frame.setTurboOnButtonAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setTurbo(true);
+            }
+        });
+        frame.setTurboOffButtonAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setTurbo(false);
+            }
+        });
+        frame.setLiftBedButtonAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                liftRamp(true);
+            }
+        });
+        frame.setLowerBedButtonAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                liftRamp(false);
+            }
+        });
+        frame.setStartButtonAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            for (Car car : cars) {
+                car.startEngine();
+            }
+            }
+        });
+        frame.setStopButtonAction(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (Car car : cars) {
+                    car.stopEngine();
+                }
+            }
+        });
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
@@ -60,7 +114,7 @@ public class CarController {
             for (Car car : cars) {
                 moveCar(car);
                 // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
+                frame.getDrawPanel().repaint();
             }
         }
     }

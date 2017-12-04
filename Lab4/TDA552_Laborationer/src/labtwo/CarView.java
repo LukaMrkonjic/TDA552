@@ -20,11 +20,11 @@ public class CarView extends JFrame {
     private static final int width = 800;
     private static final int height = 800;
 
-    // The controller member
-    private CarController carController;
+    public DrawPanel getDrawPanel() {
+        return drawPanel;
+    }
 
-
-    final DrawPanel drawPanel;
+    final private DrawPanel drawPanel;
 
     private final JPanel controlPanel = new JPanel();
 
@@ -33,58 +33,62 @@ public class CarView extends JFrame {
     private int gasAmount = 100;
     private final JLabel gasLabel = new JLabel("Amount of gas");
 
-    private JButton gasButton = new JButton("Gas");
-    private JButton brakeButton = new JButton("Brake");
-    private JButton turboOnButton = new JButton("Saab Turbo on");
-    private JButton turboOffButton = new JButton("Saab Turbo off");
-    private JButton liftBedButton = new JButton("Raise Lift Bed");
-    private JButton lowerBedButton = new JButton("Lower Lift Bed");
+    private final JButton gasButton = new JButton("Gas");
+    private final JButton brakeButton = new JButton("Brake");
+    private final JButton turboOnButton = new JButton("Saab Turbo on");
+    private final JButton turboOffButton = new JButton("Saab Turbo off");
+    private final JButton liftBedButton = new JButton("Raise Lift Bed");
+    private final JButton lowerBedButton = new JButton("Lower Lift Bed");
 
-    private JButton startButton = new JButton("Start all cars");
-    private JButton stopButton = new JButton("Stop all cars");
+    private final JButton startButton = new JButton("Start all cars");
+    private final JButton stopButton = new JButton("Stop all cars");
 
-    public void setGasButtonAction(JButton gasButton){
-        this.gasButton=gasButton;
+    public void setGasButtonAction(ActionListener action) {
+        this.gasButton.addActionListener(action);
     }
 
-    private void setBrakeButtonAction(JButton brakeButton){
-        this.brakeButton=brakeButton;
+    public void setBrakeButtonAction(ActionListener action) {
+        this.brakeButton.addActionListener(action);
     }
 
-    public void setTurboOnButtonAction(JButton turboOnButton){
-        this.turboOnButton=turboOnButton;
+    public void setTurboOnButtonAction(ActionListener action) {
+        this.turboOnButton.addActionListener(action);
     }
 
-    public void setTurboOffButtonAction(JButton turboOffButton){
-        this.turboOffButton=turboOffButton;
+    public void setTurboOffButtonAction(ActionListener action) {
+        this.turboOffButton.addActionListener(action);
     }
 
-    public void setLiftBedButtonAction(JButton liftBedButton){
-        this.liftBedButton=liftBedButton;
+    public void setLiftBedButtonAction(ActionListener action) {
+        this.liftBedButton.addActionListener(action);
     }
 
-    public void setLowerBedButtonAction(JButton lowerBedButton){
-        this.lowerBedButton=lowerBedButton;
+    public void setLowerBedButtonAction(ActionListener action) {
+        this.lowerBedButton.addActionListener(action);
     }
 
-    public void setStartButtonAction(JButton startButton){
-        this.startButton=startButton;
+    public void setStartButtonAction(ActionListener action) {
+        this.startButton.addActionListener(action);
     }
 
-    public void setStopButtonAction(JButton stopButton){
-        this.stopButton=stopButton;
+    public void setStopButtonAction(ActionListener action) {
+        this.stopButton.addActionListener(action);
     }
 
-    public int getDrawPanelHeight(){
+    public int getDrawPanelHeight() {
         return drawPanel.getHeight();
     }
 
-    public int getDrawPanelwidth(){
+    public int getDrawPanelwidth() {
         return drawPanel.getWidth();
     }
 
-    public void addDrawable(Drawable drawable){
+    public void addDrawable(Drawable drawable) {
         drawPanel.addDrawable(drawable);
+    }
+
+    public void repaintDrawPanel() {
+        getDrawPanel().repaint();
     }
 
     /**
@@ -95,7 +99,7 @@ public class CarView extends JFrame {
      */
     public CarView(String frameName, CarController cc) {
         drawPanel = new DrawPanel(width, height - 240, cc);
-        this.carController = cc;
+        //this.carController = cc;
         initComponents(frameName);
     }
 
@@ -155,35 +159,35 @@ public class CarView extends JFrame {
 
         //------------ Action Listeners ------------//
 
-        gasButton.addActionListener(e -> carController.gas(gasAmount));
-
-        brakeButton.addActionListener(e -> carController.brake(gasAmount));
-
-        turboOnButton.addActionListener(e -> {
-            carController.setTurbo(true);
-        });
-        turboOffButton.addActionListener(e -> {
-            carController.setTurbo(false);
-        });
-
-        liftBedButton.addActionListener(e -> {
-            carController.liftRamp(true);
-        });
-        lowerBedButton.addActionListener(e -> {
-            carController.liftRamp(false);
-        });
-
-        startButton.addActionListener(e -> {
-            for (Car car : carController.cars) {
-                car.startEngine();
-            }
-        });
-
-        stopButton.addActionListener(e -> {
-            for (Car car : carController.cars) {
-                car.stopEngine();
-            }
-        });
+//        gasButton.addActionListener(e -> carController.gas(gasAmount));
+//
+//        brakeButton.addActionListener(e -> carController.brake(gasAmount));
+//
+//        turboOnButton.addActionListener(e -> {
+//            carController.setTurbo(true);
+//        });
+//        turboOffButton.addActionListener(e -> {
+//            carController.setTurbo(false);
+//        });
+//
+//        liftBedButton.addActionListener(e -> {
+//            carController.liftRamp(true);
+//        });
+//        lowerBedButton.addActionListener(e -> {
+//            carController.liftRamp(false);
+//        });
+//
+//        startButton.addActionListener(e -> {
+//            for (Car car : carController.cars) {
+//                car.startEngine();
+//            }
+//        });
+//
+//        stopButton.addActionListener(e -> {
+//            for (Car car : carController.cars) {
+//                car.stopEngine();
+//            }
+//        });
 
         //------------ Frame Initialization ------------//
 
