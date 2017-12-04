@@ -1,3 +1,5 @@
+package TransportModel;
+
 import java.awt.*;
 
 //TODO: fix Javadoc

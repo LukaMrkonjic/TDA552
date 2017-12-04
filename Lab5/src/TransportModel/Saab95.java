@@ -1,7 +1,9 @@
+package TransportModel;
+
 import java.awt.*;
 
 /**
- * Class for Saab95, which is a subclass of {@link Car()}, and that implements
+ * Class for TransportModel.Saab95, which is a subclass of {@link Car()}, and that implements
  * the interface Moveable.
  *
  * @Author saralandfors, lukamrkonjik, gustafspjut
@@ -17,7 +19,7 @@ public class Saab95 extends Car {
         setNrDoors(2);
         setColor(Color.red);
         setEnginePower(125);
-        setModelName("Saab95");
+        setModelName("TransportModel.Saab95");
         stopEngine();
         setPosition(new Point(100,0));
         setDirection(new Point(0,1));

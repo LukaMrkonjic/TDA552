@@ -1,3 +1,7 @@
+package TransportView;
+
+import TransportModel.Vehicle;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -44,7 +48,7 @@ public class CarView extends JFrame {
     private ArrayList<Vehicle> vehicles; // A list of cars, modify if needed
 
     // Constructor
-    public CarView(String framename, CarController cc) {
+    public CarView(String framename, TransportController.CarController cc) {
 
         vehicles = cc.vehicles;
 
@@ -59,8 +63,8 @@ public class CarView extends JFrame {
         brakeButton = new JButton("Brake");
         turboOnButton = new JButton("Saab Turbo on");
         turboOffButton = new JButton("Saab Turbo off");
-        liftBedButton = new JButton("Scania Lift Bed");
-        lowerBedButton = new JButton("Scania Lower Bed");
+        liftBedButton = new JButton("TransportModel.Scania Lift Bed");
+        lowerBedButton = new JButton("TransportModel.Scania Lower Bed");
         startButton = new JButton("Start all cars");
         stopButton = new JButton("Stop all cars");
         turnRightButton = new JButton("Turn Left"); //For UI reasons, the buttons' names are inverted.

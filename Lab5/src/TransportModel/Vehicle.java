@@ -1,3 +1,4 @@
+package TransportModel;
 
 public abstract class Vehicle extends Transport {
 	// instance variables

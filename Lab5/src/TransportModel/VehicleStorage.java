@@ -1,9 +1,10 @@
+package TransportModel;
 
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
 /**
- * The class VehicleStorage stores Vehicles in an LinkedList and
+ * The class TransportModel.VehicleStorage stores Vehicles in an LinkedList and
  * keeps track of the number of vehicles and the space left in the storage.
  *
  * @author SaraLandfors
@@ -20,11 +21,11 @@ public class VehicleStorage {
     private Point2D.Double position;
 
     /**
-     * The constructor for a VehicleStorage takes in a certain number of parameters that are
-     * decided by the Transport that will have a VehicleStorage, such as maxSizeOfOneVehicle,
+     * The constructor for a TransportModel.VehicleStorage takes in a certain number of parameters that are
+     * decided by the TransportModel.Transport that will have a TransportModel.VehicleStorage, such as maxSizeOfOneVehicle,
      * maxStorageSpace (in sqm).
      *
-     * @param maxStorageSpace     is the max number of sqm that the VehicleStorage can load with Vehicles
+     * @param maxStorageSpace     is the max number of sqm that the TransportModel.VehicleStorage can load with Vehicles
      * @param maxSizeOfOneVehicle is the max size of one vehicle to be loaded onto the storage
      */
     public VehicleStorage(double maxStorageSpace, double maxSizeOfOneVehicle) {
@@ -34,14 +35,14 @@ public class VehicleStorage {
     }
 
     /**
-     * @return the current position of the VehicleStorage.
+     * @return the current position of the TransportModel.VehicleStorage.
      */
     public Point2D.Double getPosition() {
         return position;
     }
 
     /**
-     * This method updates the position of the VehicleStorage
+     * This method updates the position of the TransportModel.VehicleStorage
      * and loops through all the vehicles in the storage and
      * updates their positions.
      *
@@ -56,7 +57,7 @@ public class VehicleStorage {
 
     /**
      * @return the AbstractCollection that keeps track of the vehicles loaded
-     * onto the VehicleStorage
+     * onto the TransportModel.VehicleStorage
      */
     public LinkedList<Vehicle> getVehicles() {
         return vehicles;
@@ -64,7 +65,7 @@ public class VehicleStorage {
 
     /**
      * @param vehicles sets the AbstractCollection that keeps track
-     *                 of the Vehicles on the VehicleStorage. This parameter
+     *                 of the Vehicles on the TransportModel.VehicleStorage. This parameter
      *                 will determine the behavior of the addVehicle and removeVehicle
      *                 methods, as they will behave differently for say a Stack and a
      *                 Queue which are both subclasses of AbstractCollection
@@ -75,20 +76,20 @@ public class VehicleStorage {
 
 
     /**
-     * @return the maximun storage space of the VehicleStorage
+     * @return the maximun storage space of the TransportModel.VehicleStorage
      */
     public double getMaxStorageSpace() {
         return maxStorageSpace;
     }
 
     /**
-     * This method updates the maxStorageSpace of the VehicleStorage, but first,
+     * This method updates the maxStorageSpace of the TransportModel.VehicleStorage, but first,
      * it checks whether the newMaxStorageSpace is smaller than the space currently
      * used by the stored vehicles. If it is smaller, the method prints an error message.
      * If it is larger than the space currently used, the maxStorageSpace is updated AND the
      * currentStorageSpaceLeft is updated correspondingly.
      *
-     * @param newMaxStorageSpace the new maximum storage space of the VehicleStorage
+     * @param newMaxStorageSpace the new maximum storage space of the TransportModel.VehicleStorage
      */
     public void setMaxStorageSpace(double newMaxStorageSpace) {
         if (newStorageSpaceSmallerThanCurrentlyUsedSpace(newMaxStorageSpace)) {
@@ -100,8 +101,8 @@ public class VehicleStorage {
     }
 
     /**
-     * @return the storageSpace left on the VehicleStorage, which is necessary
-     * to know when deciding whether an additional Vehicle can be added to the
+     * @return the storageSpace left on the TransportModel.VehicleStorage, which is necessary
+     * to know when deciding whether an additional TransportModel.Vehicle can be added to the
      * Storage or not.
      */
     public double getCurrentStorageSpaceLeft() {
@@ -111,7 +112,7 @@ public class VehicleStorage {
     /**
      * @param currentStorageSpaceLeft sets the currentStorageSpaceLeft to a new
      *                                value. This method is private, because it can
-     *                                only be used indirectly by removing or adding a Vehicle
+     *                                only be used indirectly by removing or adding a TransportModel.Vehicle
      *                                to the storage.
      */
     private void setCurrentStorageSpaceLeft(double currentStorageSpaceLeft) {
@@ -119,7 +120,7 @@ public class VehicleStorage {
     }
 
     /**
-     * @return max size of one vehicle for the particular instance of the VehicleStorage
+     * @return max size of one vehicle for the particular instance of the TransportModel.VehicleStorage
      */
     public double getMaxSizeOfOneVehicle() {
         return maxSizeOfOneVehicle;
@@ -127,32 +128,32 @@ public class VehicleStorage {
 
     /**
      * @param maxSizeOfOneVehicle the max size to be set as the maximum
-     *                            size of one vehicle on the VehicleStorage
+     *                            size of one vehicle on the TransportModel.VehicleStorage
      */
     public void setMaxSizeOfOneVehicle(double maxSizeOfOneVehicle) {
         this.maxSizeOfOneVehicle = maxSizeOfOneVehicle;
     }
 
     /**
-     * @return the number of vehicles currently on the VehicleStorage
+     * @return the number of vehicles currently on the TransportModel.VehicleStorage
      */
     public int getVehicleCount() {
         return vehicleCount;
     }
 
     /**
-     * Sets the number of vehicles on the VehicleStorage. Method
+     * Sets the number of vehicles on the TransportModel.VehicleStorage. Method
      * is private, because method should only be called by adding
      * or removing vehicles, or by constructor.
      *
-     * @param vehicleCount the number of vehicles to be set on the VehicleStorage
+     * @param vehicleCount the number of vehicles to be set on the TransportModel.VehicleStorage
      */
     private void setVehicleCount(int vehicleCount) {
         this.vehicleCount = vehicleCount;
     }
 
     /**
-     * This method adds a vehicle to the VehicleStorage if there is room for
+     * This method adds a vehicle to the TransportModel.VehicleStorage if there is room for
      * the vehicle, and if the vehicle is not larger than the maximum size of one
      * vehicle. It also updates the numberOfVehicles.
      *
@@ -165,7 +166,7 @@ public class VehicleStorage {
             setCurrentStorageSpaceLeft(getCurrentStorageSpaceLeft() - v.getTransportSize());
             v.setIsMoveable(false);
         } else {
-            System.out.println("Can't load vehicles of specified size onto this VehicleStorage. Max size of one" +
+            System.out.println("Can't load vehicles of specified size onto this TransportModel.VehicleStorage. Max size of one" +
                     " vehicle is set to " + getMaxSizeOfOneVehicle() + " and current available space" +
                     " is " + getCurrentStorageSpaceLeft() + ".");
         }
@@ -203,7 +204,7 @@ public class VehicleStorage {
      *
      * @param v the vehicle to check size of
      * @return a boolean that is true if the vehicle can be added
-     * to the VehicleStorage, and false otherwise
+     * to the TransportModel.VehicleStorage, and false otherwise
      */
     private boolean vehicleIsSmallerThanMaxSize(Vehicle v) {
         return (v.getTransportSize() <= maxSizeOfOneVehicle);
@@ -211,7 +212,7 @@ public class VehicleStorage {
 
     /**
      * This method checks if a new vehicle fits in the space that's left
-     * in the Vehicle Storage.
+     * in the TransportModel.Vehicle Storage.
      *
      * @param v the vehicle to check whether it fits in the remaining space
      * @return a boolean that is true if the vehicle does fit, and false
@@ -224,7 +225,7 @@ public class VehicleStorage {
     /**
      * Auxiliary method to help setMaxStorageSpace decide whether the new
      * maxStorageSpace is allowed, or whether it is smaller than the space
-     * currently used by the vehicles on the VehicleStorage.
+     * currently used by the vehicles on the TransportModel.VehicleStorage.
      *
      * @param newStorageSpace the new value for maxStorageSpace
      * @return true if the newStorageSpace is smaller than the space currently used,

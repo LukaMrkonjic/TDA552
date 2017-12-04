@@ -1,3 +1,8 @@
+package Tests;
+
+import TransportModel.Vehicle;
+import TransportModel.VehicleStorage;
+import TransportModel.Volvo240;
 import org.junit.Test;
 
 import java.awt.geom.Point2D;

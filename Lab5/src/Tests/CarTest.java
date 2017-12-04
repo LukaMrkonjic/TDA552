@@ -1,3 +1,7 @@
+package Tests;
+
+import TransportModel.Saab95;
+
 import java.awt.*;
 
 import static org.junit.Assert.*;

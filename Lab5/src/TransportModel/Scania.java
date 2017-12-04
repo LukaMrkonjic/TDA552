@@ -1,10 +1,12 @@
+package TransportModel;
+
 import java.awt.*;
 
 /**
- * This class represents a Scania truck, which extends the abstract class truck,
- * which extends vehicle, which extends Transport which implements moveable.
- * When a Scania object is created, all instance variables are initialized according
- * to Scania's unique values (see constructor).
+ * This class represents a TransportModel.Scania truck, which extends the abstract class truck,
+ * which extends vehicle, which extends TransportModel.Transport which implements moveable.
+ * When a TransportModel.Scania object is created, all instance variables are initialized according
+ * to TransportModel.Scania's unique values (see constructor).
  *
  * @author SaraLandfors
  * @version 1.0
@@ -13,7 +15,7 @@ public class Scania extends Truck {
 
     public Scania() {
         setTransportSize(21.2);
-        setPosition(new Point(200, 0));    //starting position of a new Scania Truck
+        setPosition(new Point(200, 0));    //starting position of a new TransportModel.Scania TransportModel.Truck
         setDirection(new Point(1, 0));    //starting direction set to East
         setSpeedFactor(2);
         setEnginePower(0.8);
@@ -21,8 +23,8 @@ public class Scania extends Truck {
 
         setNrDoors(2);
         setColor(Color.BLUE);
-        setModelName("Scania");
-        //setLoadingPlatform(new LoadingPlatform(getCurrentSpeed(), 0, 70));
+        setModelName("TransportModel.Scania");
+        //setLoadingPlatform(new TransportModel.LoadingPlatform(getCurrentSpeed(), 0, 70));
         setCurrentSpeed(0.0);
         setIsMoveable(true);
     }
@@ -45,9 +47,9 @@ public class Scania extends Truck {
 
     /**
      * Helper method for setBed that is called if there is
-     * a Scania vehicle on the frame.
+     * a TransportModel.Scania vehicle on the frame.
      *
-     * @param up true if LoadingPlatform is to be set up, false otherwise
+     * @param up true if TransportModel.LoadingPlatform is to be set up, false otherwise
      */
     @Override
     public void setLoadingPlatform(boolean up) {

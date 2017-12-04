@@ -1,3 +1,7 @@
+package Tests;
+
+import TransportModel.Volvo240;
+
 import static org.junit.Assert.*;
 
 /**

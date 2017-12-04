@@ -1,7 +1,9 @@
+package TransportModel;
+
 import java.awt.*;
 
 /**
- * Class for Volvo240, which is a subclass of {@link Car()}, and that implements
+ * Class for TransportModel.Volvo240, which is a subclass of {@link Car()}, and that implements
  * the interface Moveable.
  *
  * @Author saralandfors, lukamrkonjik, gustafspjut
@@ -16,7 +18,7 @@ public class Volvo240 extends Car {
         setNrDoors(4);
         setColor(Color.black);
         setEnginePower(100);
-        setModelName("Volvo240");
+        setModelName("TransportModel.Volvo240");
         stopEngine();
         setPosition(new Point(0,0));
         setSpeedFactor(getSpeedFactor());

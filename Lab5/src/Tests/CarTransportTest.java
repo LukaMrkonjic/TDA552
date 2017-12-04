@@ -1,6 +1,7 @@
-import org.junit.Test;
+package Tests;
 
-import static org.junit.Assert.*;
+import TransportModel.CarTransport;
+import org.junit.Test;
 
 /**
  * Created by lukamrkonjic on 2017-11-15.

@@ -1,8 +1,10 @@
+package TransportModel;
+
 import java.awt.*;
 import java.awt.geom.Point2D;
 
 /**
- * The CarTransport class act like a general ground based vehicle
+ * The TransportModel.CarTransport class act like a general ground based vehicle
  * for transporting vehicles. In other words a truck with vehicle storing functionality.
  *
  * @author LukaMrkonjic
@@ -17,7 +19,7 @@ public class CarTransport extends Truck {
         VehicleStorage v;
 
     /**
-     * The constructor for a CarTransport sets up a default car transport with
+     * The constructor for a TransportModel.CarTransport sets up a default car transport with
      * a loading platform which has the same speed as the transport and a vehicle storage
      * with a max storage space and a max size per vehicle.
      */
@@ -33,7 +35,7 @@ public class CarTransport extends Truck {
     }
 
     /**
-     * Redefines the move function which is inherited from the Transport abstract class.
+     * Redefines the move function which is inherited from the TransportModel.Transport abstract class.
      * This method override moves the car transport in a direction while also moving
      * the vehicle storage and it's stored cars.
      */
@@ -71,7 +73,7 @@ public class CarTransport extends Truck {
      */
     public void addVehicle(Vehicle vehicle) {
     	if (vehicle.equals(this)) {
-    		System.out.print("ERROR: CarTransport cannot add itself!");
+    		System.out.print("ERROR: TransportModel.CarTransport cannot add itself!");
 
     		//TODO: överväg att göra detta till en egen hjälpmetod, t ex private bool vehicleIsLoadable():
 		} else if (getCurrentSpeed() == 0 && getLoadingPlatform().getAngleIsZero() && vehicle.getPosition().equals(this.getPosition())) {

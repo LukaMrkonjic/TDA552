@@ -1,3 +1,8 @@
+package Tests;
+
+import TransportModel.Saab95;
+import TransportModel.Volvo240;
+
 public class TestCars {
 
     public TestCars() {

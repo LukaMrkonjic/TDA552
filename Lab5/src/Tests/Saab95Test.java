@@ -1,4 +1,7 @@
-import java.awt.*;
+package Tests;
+
+import TransportModel.Saab95;
+
 import java.awt.geom.Point2D;
 
 import static org.junit.Assert.*;

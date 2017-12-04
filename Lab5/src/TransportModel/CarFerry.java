@@ -1,3 +1,5 @@
+package TransportModel;
+
 import java.awt.*;
 import java.awt.geom.Point2D;
 
@@ -11,7 +13,7 @@ public class CarFerry extends Ferry {
 
 
     /**
-     * Constructor for CarFerry.
+     * Constructor for TransportModel.CarFerry.
      */
     public CarFerry() {
 
@@ -41,7 +43,7 @@ public class CarFerry extends Ferry {
     }
 
     /**
-     * Redefines the move function which is inherited from the Transport abstract class.
+     * Redefines the move function which is inherited from the TransportModel.Transport abstract class.
      * This method override moves the car transport in a direction while also moving
      * the vehicle storage and it's stored cars.
      */
@@ -79,7 +81,7 @@ public class CarFerry extends Ferry {
      */
     public void addVehicle(Vehicle vehicle) {
         if (vehicle.equals(this)) {
-            System.out.print("ERROR: CarFerry cannot add itself!");
+            System.out.print("ERROR: TransportModel.CarFerry cannot add itself!");
 
             //TODO: överväg att göra detta till en egen hjälpmetod, t ex private bool vehicleIsLoadable():
         } else if (getCurrentSpeed() == 0 && loadingPlatform.getAngleIsZero() && vehicle.getPosition().equals(this.getPosition())) {

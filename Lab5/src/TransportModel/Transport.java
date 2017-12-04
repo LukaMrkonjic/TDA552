@@ -1,3 +1,5 @@
+package TransportModel;
+
 import java.awt.*;
 import java.awt.geom.Point2D;
 
@@ -101,7 +103,7 @@ public abstract class Transport implements Movable {
     }
 
     /**
-     * @param modelName Transport's model name to set.
+     * @param modelName TransportModel.Transport's model name to set.
      */
     public void setModelName(String modelName) {
         this.modelName = modelName;

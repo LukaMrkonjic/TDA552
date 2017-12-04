@@ -1,5 +1,7 @@
+package TransportModel;
+
 /**
- * The class LoadingPlatform is a platform that a truck, or the like,
+ * The class TransportModel.LoadingPlatform is a platform that a truck, or the like,
  * can have and uses to load vehicles. The loading platform has an angle with
  * a min and a max value. It also has a boolean instance variable that is true if the
  * angle is zero.
@@ -30,10 +32,10 @@ public class LoadingPlatform {
 
 	/**
 	 * This secondary constructor takes in value for the min and max
-	 * values of the LoadingPlatform and sets them accordingly.
+	 * values of the TransportModel.LoadingPlatform and sets them accordingly.
 	 *
-	 * @param maxAngle  the maximum angle for the LoadingPlatform
-	 * @param minAngle  the minimum angle for the LoadingPlatform
+	 * @param maxAngle  the maximum angle for the TransportModel.LoadingPlatform
+	 * @param minAngle  the minimum angle for the TransportModel.LoadingPlatform
 	 */
 	public LoadingPlatform(double speed, int maxAngle, int minAngle) {
 		speed = this.speed;
@@ -47,7 +49,7 @@ public class LoadingPlatform {
 	}
 
 	/**
-	 * This method sets the max angle of the LoadingPlatform.
+	 * This method sets the max angle of the TransportModel.LoadingPlatform.
 	 *
 	 * @param maxAngle the maximum angle to be set
 	 */
@@ -56,16 +58,16 @@ public class LoadingPlatform {
 	}
 
 	/**
-	 * This method returns the max angle of the LoadingPlatform.
+	 * This method returns the max angle of the TransportModel.LoadingPlatform.
 	 *
-	 * @return the LoadingPlatform's maximum angle
+	 * @return the TransportModel.LoadingPlatform's maximum angle
 	 */
 	public int getMaxAngle() {
 		return maxAngle;
 	}
 
 	/**
-	 * This method sets the min angle of the LoadingPlatform.
+	 * This method sets the min angle of the TransportModel.LoadingPlatform.
 	 *
 	 * @param minAngle the min angle to set
 	 */
@@ -74,16 +76,16 @@ public class LoadingPlatform {
 	}
 
 	/**
-	 * This method returns the min angle of the LoadingPlatform.
+	 * This method returns the min angle of the TransportModel.LoadingPlatform.
 	 *
-	 * @return the min angle of the LoadingPlatform
+	 * @return the min angle of the TransportModel.LoadingPlatform
 	 */
 	public int getMinAngle() {
 		return minAngle;
 	}
 
 	/**
-	 * This method sets the actual angle of the LoadingPlatform.
+	 * This method sets the actual angle of the TransportModel.LoadingPlatform.
 	 * It also checks whether the set value is equal to zero.
 	 * If it is, the boolean instance variable angleIsZero is also
 	 * updated to true.
@@ -107,9 +109,9 @@ public class LoadingPlatform {
 	}
 
 	/**
-	 * This method returns the current angle of the LoadingPlatform.
+	 * This method returns the current angle of the TransportModel.LoadingPlatform.
 	 *
-	 * @return the current angle of the LoadingPlatform
+	 * @return the current angle of the TransportModel.LoadingPlatform
 	 */
 	public int getAngle() {
 		return angle;
@@ -117,9 +119,9 @@ public class LoadingPlatform {
 
 	/**
 	 * This method returns the instance variable that indicates
-	 * whether the angle of the LoadingPlatform is zero. This method
-	 * can be used by vehicles that have a LoadingPlatform, but cannot
-	 * .move() unless the angle of the LoadingPlatform is zero.
+	 * whether the angle of the TransportModel.LoadingPlatform is zero. This method
+	 * can be used by vehicles that have a TransportModel.LoadingPlatform, but cannot
+	 * .move() unless the angle of the TransportModel.LoadingPlatform is zero.
 	 *
 	 * @return the boolean that indicates whether the angle is zero
 	 */
@@ -129,14 +131,14 @@ public class LoadingPlatform {
 
 	/**
 	 * This is an auxiliary private method that sets the value of the
-	 * boolean that indicates whether the LoadingPlatform's angle is zero.
+	 * boolean that indicates whether the TransportModel.LoadingPlatform's angle is zero.
 	 * This method is private so that a user cannot set the value
 	 * to true even if the angle is not zero. This method is called by
 	 * the setAngle()-method.
 	 *
-	 * @param b the boolean value of whether the angle of the LoadingPlatform is zero
+	 * @param b the boolean value of whether the angle of the TransportModel.LoadingPlatform is zero
 	 */
-	//aux. method that cannot be directly changed, except by the LoadingPlatform itself
+	//aux. method that cannot be directly changed, except by the TransportModel.LoadingPlatform itself
 	private void setAngleIsZero(boolean b) {
 		angleIsZero = b;
 	}

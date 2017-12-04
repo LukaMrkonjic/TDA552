@@ -1,11 +1,13 @@
+package TransportModel;
+
 public abstract class Truck extends Vehicle {
 
 	//instance variables
-	private LoadingPlatform loadingPlatform;            //The truck has a LoadingPlatform
+	private LoadingPlatform loadingPlatform;            //The truck has a TransportModel.LoadingPlatform
 
 
 	/**
-	 * @param loadingPlatform the LoadingPlatform to be set for the truck
+	 * @param loadingPlatform the TransportModel.LoadingPlatform to be set for the truck
 	 */
 	public void setLoadingPlatform(LoadingPlatform loadingPlatform) {
 		this.loadingPlatform = loadingPlatform;
@@ -16,7 +18,7 @@ public abstract class Truck extends Vehicle {
 	}
 
 	/**
-	 * Overridden method of setting the speed from superclass Transport.
+	 * Overridden method of setting the speed from superclass TransportModel.Transport.
 	 * Reason is because it needs to be checked whether the loadingPlatform's
 	 * angle is zero before speed can be non-zero.
 	 *
@@ -25,7 +27,7 @@ public abstract class Truck extends Vehicle {
 	@Override
 	public void setCurrentSpeed(double currentSpeed) {
 		if (getLoadingPlatform().getAngleIsZero() == false) {
-			System.out.println("Cannot move Truck unless angle of LoadingPlatform is zero");
+			System.out.println("Cannot move TransportModel.Truck unless angle of TransportModel.LoadingPlatform is zero");
 		} else if (currentSpeed < 0) {
 			setCurrentSpeed(0);
 		} else if (currentSpeed > getEnginePower()) {

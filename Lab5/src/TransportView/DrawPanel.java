@@ -1,8 +1,11 @@
+package TransportView;
+
+import TransportModel.Vehicle;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
@@ -16,7 +19,7 @@ public class DrawPanel extends JPanel{
     HashMap<String, BufferedImage> images = new HashMap<>();
     // To keep track of a single cars position
     Point carPoint = new Point();
-	private ArrayList<Vehicle> vehiclesToBeDrawn = new ArrayList<>();	//so the drawpanel knows what to draw, controlled by CarController
+	private ArrayList<Vehicle> vehiclesToBeDrawn = new ArrayList<>();	//so the drawpanel knows what to draw, controlled by TransportController.CarController
 
 
 	public ArrayList<Vehicle> getVehiclesToBeDrawn() {
@@ -44,9 +47,9 @@ public class DrawPanel extends JPanel{
 			// Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
 			// if you are starting in IntelliJ.
 			// Linux users need to modify \ to / in path string
-			images.put("Saab95", ImageIO.read(new File("src/pics/Saab95.jpg")));
-			images.put("Scania", ImageIO.read(new File("src/pics/Scania.jpg")));
-			images.put("Volvo240", ImageIO.read(new File("src/pics/Volvo240.jpg")));
+			images.put("TransportModel.Saab95", ImageIO.read(new File("src//pics//Saab95.jpg")));
+			images.put("TransportModel.Scania", ImageIO.read(new File("src//pics//Scania.jpg")));
+			images.put("TransportModel.Volvo240", ImageIO.read(new File("src//pics//Volvo240.jpg")));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
