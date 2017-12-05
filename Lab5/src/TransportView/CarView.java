@@ -17,8 +17,8 @@ import java.util.ArrayList;
  **/
 
 public class CarView extends JFrame {
-    private static final int X = 800;
-    private static final int Y = 800;
+    private static final int width = 800;
+    private static final int height = 800;
 
     // The controller member
     private DrawPanel drawPanel;
@@ -52,7 +52,7 @@ public class CarView extends JFrame {
 
         vehicles = cc.vehicles;
 
-        setDrawPanel(new DrawPanel(X, Y - 240));
+        setDrawPanel(new DrawPanel(width, height - 240));
         setControlPanel(new JPanel());
 
         setGasPanel(new JPanel());
@@ -73,6 +73,14 @@ public class CarView extends JFrame {
     }
 
 
+    public int getWidth(){
+        return width;
+    }
+
+    public int getHeight(){
+        return height;
+    }
+
     public DrawPanel getDrawPanel() {
         return drawPanel;
     }
@@ -87,7 +95,7 @@ public class CarView extends JFrame {
     private void initComponents(String title) {
 
         this.setTitle(title);
-        this.setPreferredSize(new Dimension(X, Y));
+        this.setPreferredSize(new Dimension(width, height));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(getDrawPanel());
@@ -121,20 +129,20 @@ public class CarView extends JFrame {
         getControlPanel().add(lowerBedButton, 6);
         getControlPanel().add(turnRightButton, 7);
 
-        getControlPanel().setPreferredSize(new Dimension((X / 2) + 4, 200));
+        getControlPanel().setPreferredSize(new Dimension((width / 2) + 4, 200));
         this.add(getControlPanel());
         getControlPanel().setBackground(Color.CYAN);
 
 
         getStartButton().setBackground(Color.blue);
         getStartButton().setForeground(Color.green);
-        getStartButton().setPreferredSize(new Dimension(X / 5 - 15, 200));
+        getStartButton().setPreferredSize(new Dimension(width / 5 - 15, 200));
         this.add(getStartButton());
 
 
         getStopButton().setBackground(Color.red);
         getStopButton().setForeground(Color.black);
-        getStopButton().setPreferredSize(new Dimension(X / 5 - 15, 200));
+        getStopButton().setPreferredSize(new Dimension(width / 5 - 15, 200));
         this.add(getStopButton());
 
 
