@@ -87,63 +87,49 @@ public class CarController {
 	ActionListener turnLeft = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for (Vehicle car : vehicles) {
-				car.turnLeft();
-			}
+			tm.turnLeft();
 		}
 	};
 
 	ActionListener turnRight = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for (Vehicle car : vehicles) {
-				car.turnRight();
-			}
+			tm.turnRight();
 		}
 	};
 
 	ActionListener stopIfCars = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for (Vehicle v : vehicles) {
-				v.stopIfCars();
-			}
+			tm.stopAllCars();
 		}
 	};
 
 	ActionListener startIfCars = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for (Vehicle v : vehicles) {
-				v.startIfCars();
-			}
+			tm.startAllCars();
 		}
 	};
 
 	ActionListener turboOn = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for (Vehicle v : vehicles) {
-				v.setTurbo(true);
-			}
+			tm.setTurboOn();
 		}
 	};
 
 	ActionListener turboOff = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for (Vehicle v : vehicles) {
-				v.setTurbo(false);
-			}
+			tm.setTurboOff();
 		}
 	};
 
 	ActionListener gas = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for (Vehicle v : vehicles) {
-				v.gas(gasAmount / 100d);
-			}
+			tm.gas(gasAmount);
 		}
 	};
 
@@ -151,27 +137,21 @@ public class CarController {
 	ActionListener brake = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for (Vehicle v : vehicles) {
-				v.brake(gasAmount / 100d);
-			}
+			tm.brake(gasAmount);
 		}
 	};
 
 	ActionListener bedFalse = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for (Vehicle v : vehicles) {
-				v.setBed(false);
-			}
+			tm.setBedTOFalse();
 		}
 	};
 
 	ActionListener bedTrue = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for (Vehicle v : vehicles) {
-				v.setBed(true);
-			}
+			tm.setBedToTrue();
 		}
 	};
 

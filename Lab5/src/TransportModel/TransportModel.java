@@ -33,7 +33,6 @@ public class TransportModel {
         for (Car c : allCars) {
             c.stopEngine();
         }
-        //vehicles.
     }
 
     public void startAllCars() {
@@ -43,22 +42,73 @@ public class TransportModel {
         }
     }
 
-    public void lowerBed(){
+    public void lowerBed() {
         ArrayList<Truck> allTrucks = getAllOfType(Truck.class);
         for (Truck t : allTrucks) {
-            t.lowerBed();
+            t.getLoadingPlatform().setAngle(t.getLoadingPlatform().getMaxAngle());
         }
     }
-    public void liftBed(){
+
+    public void liftBed() {
         ArrayList<Truck> allTrucks = getAllOfType(Truck.class);
         for (Truck t : allTrucks) {
-            t.liftBed();
+            t.getLoadingPlatform().setAngle(0);
         }
     }
-    public void setTurboOn(){
+
+    public void turnLeft() {
+        for (Vehicle v : vehicles) {
+            v.turnLeft();
+        }
+    }
+
+    public void turnRight() {
+        for (Vehicle v : vehicles) {
+            v.turnRight();
+        }
+    }
+
+    public void gas(int amount) {
+        for (Vehicle v : vehicles) {
+            v.gas(amount / 100d);
+        }
+    }
+
+    public void brake(int amount) {
+        for (Vehicle v : vehicles) {
+            v.brake(amount / 100d);
+        }
+    }
+
+    public void setBedTOFalse() {
+        for (Vehicle v : vehicles) {
+            v.setBed(false);
+        }
+    }
+    public void setBedToTrue(){
+        for (Vehicle v:vehicles){
+            v.setBed(true);
+        }
+    }
+
+    //TODO
+    public void setLodingPlatform() {
+
+    }
+
+    //Currently not "playing" out the class in order to find out if it has a turbo or not.
+    //Not sure how to do that and not necessary at this point.
+    public void setTurboOn() {
         ArrayList<Saab95> allSaab95 = getAllOfType(Saab95.class);
-        for(Saab95 s:allSaab95){
-            s.s;
+        for (Saab95 s : allSaab95) {
+            s.setTurboOn();
+        }
+    }
+
+    public void setTurboOff() {
+        ArrayList<Saab95> allSaab95 = getAllOfType(Saab95.class);
+        for (Saab95 s : allSaab95) {
+            s.setTurboOff();
         }
     }
 
