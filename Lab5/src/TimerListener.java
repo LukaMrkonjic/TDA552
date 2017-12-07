@@ -7,11 +7,9 @@ import java.awt.event.ActionListener;
  * view to update its images. Change this method to your needs.
  *
  */
+
+/*
 private class TimerListener implements ActionListener {
-
-
-
-
 
     public void actionPerformed(ActionEvent e) {
 
@@ -35,3 +33,4 @@ private class TimerListener implements ActionListener {
         frame.getDrawPanel().repaint();
     }
 }
+*/

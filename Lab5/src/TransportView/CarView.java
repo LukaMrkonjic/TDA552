@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -338,6 +339,38 @@ public class CarView extends JFrame {
 
     public void setTurnLeftButton(JButton turnLeftButton) {
         this.turnLeftButton = turnLeftButton;
+    }
+
+    public void setGasButtonAction(ActionListener action) {
+        this.gasButton.addActionListener(action);
+    }
+
+    public void setBrakeButtonAction(ActionListener action) {
+        this.brakeButton.addActionListener(action);
+    }
+
+    public void setTurboOnButtonAction(ActionListener action) {
+        this.turboOnButton.addActionListener(action);
+    }
+
+    public void setTurboOffButtonAction(ActionListener action) {
+        this.turboOffButton.addActionListener(action);
+    }
+
+    public void setLiftBedButtonAction(ActionListener action) {
+        this.liftBedButton.addActionListener(action);
+    }
+
+    public void setLowerBedButtonAction(ActionListener action) {
+        this.lowerBedButton.addActionListener(action);
+    }
+
+    public void setStartButtonAction(ActionListener action) {
+        this.startButton.addActionListener(action);
+    }
+
+    public void setStopButtonAction(ActionListener action) {
+        this.stopButton.addActionListener(action);
     }
 
 }

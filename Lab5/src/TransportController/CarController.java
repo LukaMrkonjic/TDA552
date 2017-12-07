@@ -1,10 +1,8 @@
 package TransportController;
 
-import TransportModel.Saab95;
-import TransportModel.Scania;
 import TransportModel.Vehicle;
-import TransportModel.Volvo240;
 import TransportView.CarView;
+import TransportModel.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -20,29 +18,16 @@ import java.util.ArrayList;
 public class CarController {
 	// member fields:
 
+	TransportModel tm;
+
+	public CarController(TransportModel tm) {
+		this.tm = tm;
+	}
+
 	private final int delay = 50;  // The delay (ms) corresponds to 20 updates a sec (hz)
 	private Timer timer = new Timer(delay, new TimerListener()); // The timer is started with an listener (see below) that executes the statements each step between delays.
 	CarView frame; // The frame that represents this instance View of the MVC pattern
 	public ArrayList<Vehicle> vehicles = new ArrayList<>(); // A list of cars, modify if needed
-
-	/**
-	 * Main program that creates three vehicles and adds them to the frame.
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// Instance of this class
-		CarController cc = new CarController();
-
-		cc.vehicles.add(new Volvo240());
-		cc.vehicles.add(new Scania());
-		cc.vehicles.add(new Saab95());
-
-		// Start a new view and send a reference of self
-		cc.frame = new CarView("CarSim 1.0", cc);
-
-		// Start the timer
-		cc.timer.start();
-	}
 
 	/** Each step the TimerListener moves all the cars in the list and tells the
     * view to update its images. Change this method to your needs.
