@@ -1,3 +1,4 @@
+/*
 package Tests;
 
 import TransportModel.CarFerry;
@@ -40,7 +41,8 @@ public class TransportTest {
         System.out.println(Saab.getPosition());
         System.out.println(ct.getPosition());
         System.out.println(cf.getPosition());
-        */
+
     }
 
 }
+*/

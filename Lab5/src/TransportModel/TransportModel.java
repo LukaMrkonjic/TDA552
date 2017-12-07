@@ -101,14 +101,14 @@ public class TransportModel {
     public void setTurboOn() {
         ArrayList<Saab95> allSaab95 = getAllOfType(Saab95.class);
         for (Saab95 s : allSaab95) {
-            s.setTurboOn();
+            s.setTurbo(true);
         }
     }
 
     public void setTurboOff() {
         ArrayList<Saab95> allSaab95 = getAllOfType(Saab95.class);
         for (Saab95 s : allSaab95) {
-            s.setTurboOff();
+            s.setTurbo(false);
         }
     }
 

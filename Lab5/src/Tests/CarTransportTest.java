@@ -1,11 +1,9 @@
+/*
 package Tests;
 
 import TransportModel.CarTransport;
 import org.junit.Test;
 
-/**
- * Created by lukamrkonjic on 2017-11-15.
- */
 public class CarTransportTest {
 
     @Test
@@ -32,3 +30,4 @@ public class CarTransportTest {
     }
 
 }
+*/
