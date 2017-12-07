@@ -1,6 +1,9 @@
 package TransportModel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * This class represents a TransportModel.Scania truck, which extends the abstract class truck,
@@ -13,7 +16,8 @@ import java.awt.*;
  */
 public class Scania extends Truck {
 
-    public Scania() {
+    public Scania(String imagePath) throws IOException {
+        this.setImage(ImageIO.read(new File(imagePath)));
         setTransportSize(21.2);
         setPosition(new Point(200, 0));    //starting position of a new TransportModel.Scania TransportModel.Truck
         setDirection(new Point(1, 0));    //starting direction set to East

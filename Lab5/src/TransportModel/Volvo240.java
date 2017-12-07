@@ -1,6 +1,9 @@
 package TransportModel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Class for TransportModel.Volvo240, which is a subclass of {@link Car()}, and that implements
@@ -14,7 +17,8 @@ public class Volvo240 extends Car {
 
     public final static double trimFactor = 1.25;
 
-    public Volvo240(){
+    public Volvo240(String imagePath) throws IOException {
+        this.setImage(ImageIO.read(new File(imagePath)));
         setNrDoors(4);
         setColor(Color.black);
         setEnginePower(100);

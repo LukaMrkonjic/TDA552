@@ -1,12 +1,10 @@
+/*
 package Tests;
 
 import TransportModel.Volvo240;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by lukamrkonjic on 2017-11-07.
- */
 public class Volvo240Test {
     @org.junit.Test
     public void getSpeedFactor() throws Exception {
@@ -17,3 +15,4 @@ public class Volvo240Test {
     }
 
 }
+*/

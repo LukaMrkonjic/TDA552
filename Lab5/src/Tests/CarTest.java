@@ -1,3 +1,4 @@
+/*
 package Tests;
 
 import TransportModel.Saab95;
@@ -106,3 +107,4 @@ public class CarTest {
 	}
 
 }
+*/

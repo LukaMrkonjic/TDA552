@@ -2,6 +2,7 @@ package TransportModel;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
+import java.awt.image.BufferedImage;
 
 public abstract class Transport implements Movable {
 
@@ -16,6 +17,15 @@ public abstract class Transport implements Movable {
     private double transportSize;
     private double maxStorageSpace;
     private boolean isMovable;
+    public BufferedImage image;
+
+    public BufferedImage getImage() {
+        return image;
+    }
+
+    public void setImage(BufferedImage image) {
+        this.image = image;
+    }
 
     /**
      * @return the current position.

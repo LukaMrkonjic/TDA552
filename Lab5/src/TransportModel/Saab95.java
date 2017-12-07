@@ -1,6 +1,9 @@
 package TransportModel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Class for TransportModel.Saab95, which is a subclass of {@link Car()}, and that implements
@@ -14,7 +17,8 @@ public class Saab95 extends Car {
 
     private boolean turboOn;
 
-    public Saab95(){
+    public Saab95(String imagePath) throws IOException {
+        this.setImage(ImageIO.read(new File(imagePath)));
         setTransportSize(8.1);
         setNrDoors(2);
         setColor(Color.red);
@@ -25,6 +29,7 @@ public class Saab95 extends Car {
         setDirection(new Point(0,1));
         setSpeedFactor(getSpeedFactor());
         setIsMoveable(true);
+
     }
 
     /**

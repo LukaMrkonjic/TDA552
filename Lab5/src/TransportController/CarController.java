@@ -19,15 +19,29 @@ public class CarController {
 	// member fields:
 
 	TransportModel tm;
+	TransportView.CarView frame; // The frame that represents this instance View of the MVC pattern
+	int gasAmount;
+	public ArrayList<Vehicle> vehicles;
 
-	public CarController(TransportModel tm) {
+	public CarController(TransportModel tm, CarView frame) {
 		this.tm = tm;
+		this.frame = frame;
+		this.vehicles = tm.getVehicles();
+
+		frame.getTurnLeftButton().addActionListener(turnLeft);
+		frame.getTurnRightButton().addActionListener(turnRight);
+		frame.getStartButton().addActionListener(startIfCars);
+		frame.getStopButton().addActionListener(stopIfCars);
+		frame.getTurboOffButton().addActionListener(turboOff);
+		frame.getTurboOnButton().addActionListener(turboOn);
+		frame.getGasButton().addActionListener(gas);
+		frame.getBrakeButton().addActionListener(brake);
+		frame.getLowerBedButton().addActionListener(bedFalse);
+		frame.getLiftBedButton().addActionListener(bedTrue);
 	}
 
 	private final int delay = 50;  // The delay (ms) corresponds to 20 updates a sec (hz)
 	private Timer timer = new Timer(delay, new TimerListener()); // The timer is started with an listener (see below) that executes the statements each step between delays.
-	CarView frame; // The frame that represents this instance View of the MVC pattern
-	public ArrayList<Vehicle> vehicles = new ArrayList<>(); // A list of cars, modify if needed
 
 	/** Each step the TimerListener moves all the cars in the list and tells the
     * view to update its images. Change this method to your needs.
@@ -35,6 +49,8 @@ public class CarController {
 	 */
 	private class TimerListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			gasAmount = frame.getGasAmount();
+
 			for (Vehicle car : vehicles) {
 				car.move();
 
@@ -68,5 +84,99 @@ public class CarController {
 		this.vehicles = vehicles;
 	}
 
+	ActionListener turnLeft = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (Vehicle car : vehicles) {
+				car.turnLeft();
+			}
+		}
+	};
+
+	ActionListener turnRight = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (Vehicle car : vehicles) {
+				car.turnRight();
+			}
+		}
+	};
+
+	ActionListener stopIfCars = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (Vehicle v : vehicles) {
+				v.stopIfCars();
+			}
+		}
+	};
+
+	ActionListener startIfCars = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (Vehicle v : vehicles) {
+				v.startIfCars();
+			}
+		}
+	};
+
+	ActionListener turboOn = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (Vehicle v : vehicles) {
+				v.setTurbo(true);
+			}
+		}
+	};
+
+	ActionListener turboOff = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (Vehicle v : vehicles) {
+				v.setTurbo(false);
+			}
+		}
+	};
+
+	ActionListener gas = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (Vehicle v : vehicles) {
+				v.gas(gasAmount / 100d);
+			}
+		}
+	};
+
+
+	ActionListener brake = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (Vehicle v : vehicles) {
+				v.brake(gasAmount / 100d);
+			}
+		}
+	};
+
+	ActionListener bedFalse = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (Vehicle v : vehicles) {
+				v.setBed(false);
+			}
+		}
+	};
+
+	ActionListener bedTrue = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			for (Vehicle v : vehicles) {
+				v.setBed(true);
+			}
+		}
+	};
+
+	public Timer getTimer() {
+		return timer;
+	}
 
 }

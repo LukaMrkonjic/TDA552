@@ -1,5 +1,7 @@
 package TransportModel;
 
+import java.awt.image.BufferedImage;
+
 public abstract class Vehicle extends Transport {
 	// instance variables
 	private int nrDoors; // Number of doors on the car

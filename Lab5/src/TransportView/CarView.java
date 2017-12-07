@@ -1,11 +1,13 @@
 package TransportView;
 
+import TransportModel.TransportModel;
 import TransportModel.Vehicle;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -46,14 +48,13 @@ public class CarView extends JFrame {
     private JButton turnRightButton;
     private JButton turnLeftButton;
 
-    private ArrayList<Vehicle> vehicles; // A list of cars, modify if needed
+    TransportModel tm;
 
     // Constructor
-    public CarView(String framename, TransportController.CarController cc) {
+    public CarView(String framename, TransportModel tm) {
+        this.tm = tm;
 
-        vehicles = cc.vehicles;
-
-        setDrawPanel(new DrawPanel(width, height - 240));
+        setDrawPanel(new DrawPanel(width, height - 240, tm));
         setControlPanel(new JPanel());
 
         setGasPanel(new JPanel());
@@ -70,9 +71,9 @@ public class CarView extends JFrame {
         stopButton = new JButton("Stop all cars");
         turnRightButton = new JButton("Turn Left"); //For UI reasons, the buttons' names are inverted.
         turnLeftButton = new JButton("Turn Right"); // This is because of the inverted nature of the x,y-grid of the frame.
+
         initComponents(framename);
     }
-
 
     public int getWidth(){
         return width;
@@ -145,67 +146,6 @@ public class CarView extends JFrame {
         getStopButton().setForeground(Color.black);
         getStopButton().setPreferredSize(new Dimension(width / 5 - 15, 200));
         this.add(getStopButton());
-
-
-        getTurnLeftButton().addActionListener(e -> {
-            for (Vehicle car : vehicles) {
-                car.turnLeft();
-            }
-        });
-
-        getTurnRightButton().addActionListener(e -> {
-            for (Vehicle car : vehicles) {
-                car.turnRight();
-            }
-        });
-
-        getStopButton().addActionListener(e -> {
-            for (Vehicle v : vehicles) {
-                v.stopIfCars();
-            }
-        });
-
-        getStartButton().addActionListener(e -> {
-            for (Vehicle v : vehicles) {
-                v.startIfCars();
-            }
-        });
-
-        getTurboOnButton().addActionListener(e -> {
-            for (Vehicle v : vehicles) {
-                v.setTurbo(true);
-            }
-        });
-
-        getTurboOffButton().addActionListener(e -> {
-            for (Vehicle v : vehicles) {
-                v.setTurbo(false);
-            }
-        });
-
-        getGasButton().addActionListener(e -> {
-            for (Vehicle v : vehicles) {
-                v.gas(gasAmount / 100d);
-            }
-        });
-
-        getBrakeButton().addActionListener(e -> {
-            for (Vehicle v : vehicles) {
-                v.brake(gasAmount / 100d);
-            }
-        });
-
-        getLowerBedButton().addActionListener(e -> {
-            for (Vehicle v : vehicles) {
-                v.setBed(false);
-            }
-        });
-
-        getLiftBedButton().addActionListener(e -> {
-            for (Vehicle v : vehicles) {
-                v.setBed(true);
-            }
-        });
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();

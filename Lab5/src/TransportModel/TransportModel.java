@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class TransportModel {
 
-    public ArrayList<Vehicle> vehicles;
+    private ArrayList<Vehicle> vehicles;
 
     public TransportModel(ArrayList<Vehicle> vehicles) {
         this.vehicles = vehicles;
@@ -19,6 +19,10 @@ public class TransportModel {
 
     public void startAllCars() {
 
+    }
+
+    public ArrayList<Vehicle> getVehicles() {
+        return vehicles;
     }
 
 }
