@@ -80,7 +80,7 @@ public class CarView extends JFrame {
         //Sets Buttons
         setGasButton(new JButton("Gas"));
         setBrakeButton(new JButton("Brake"));
-        setTurboOnButton(new JButton("Saab Turbo on"););
+        setTurboOnButton(new JButton("Saab Turbo on"));
         setTurboOffButton(new JButton("Saab Turbo off"));
         setLiftBedButton(new JButton("Lift Bed Scania"));
         setLowerBedButton(new JButton("Lower Bed Scania"));
@@ -95,16 +95,10 @@ public class CarView extends JFrame {
         initComponents(framename);
     }
 
-
-    public void setDrawPanel(DrawPanel drawPanel) {
-        this.drawPanel = drawPanel;
-    }
-
     /**
      * Sets everything in place and fits everything
      */
     private void initComponents(String title) {
-
         this.setTitle(title);
         this.setPreferredSize(new Dimension(width, height));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
@@ -158,7 +152,6 @@ public class CarView extends JFrame {
         getStopButton().setBackground(Color.RED);
         getStopButton().setForeground(Color.black);
 
-
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
 
@@ -170,9 +163,56 @@ public class CarView extends JFrame {
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
+    /**
+     * Methods to set actionlisteners to all components.
+     * @param action
+     */
+    public void setGasButtonAction(ActionListener action) {
+        this.gasButton.addActionListener(action);
+    }
+
+    public void setBrakeButtonAction(ActionListener action) {
+        this.brakeButton.addActionListener(action);
+    }
+
+    public void setTurboOnButtonAction(ActionListener action) {
+        this.turboOnButton.addActionListener(action);
+    }
+
+    public void setTurboOffButtonAction(ActionListener action) {
+        this.turboOffButton.addActionListener(action);
+    }
+
+    public void setLiftBedButtonAction(ActionListener action) {
+        this.liftBedButton.addActionListener(action);
+    }
+
+    public void setLowerBedButtonAction(ActionListener action) {
+        this.lowerBedButton.addActionListener(action);
+    }
+
+    public void setStartButtonAction(ActionListener action) {
+        this.startButton.addActionListener(action);
+    }
+
+    public void setStopButtonAction(ActionListener action) {
+        this.stopButton.addActionListener(action);
+    }
+
+    public void setAddCarButtonAction(ActionListener action) {
+        this.addCarButton.addActionListener(action);
+    }
+
+    public void setRemoveCarButtonAction(ActionListener action) {
+        this.removeCarButton.addActionListener(action);
+    }
+
+    /**
+     * Getters and setters for all components.
+     * @return
+     */
     public JPanel getControlPanel() {
         return controlPanel;
     }
@@ -293,46 +333,6 @@ public class CarView extends JFrame {
         this.turnLeftButton = turnLeftButton;
     }
 
-    public void setGasButtonAction(ActionListener action) {
-        this.gasButton.addActionListener(action);
-    }
-
-    public void setBrakeButtonAction(ActionListener action) {
-        this.brakeButton.addActionListener(action);
-    }
-
-    public void setTurboOnButtonAction(ActionListener action) {
-        this.turboOnButton.addActionListener(action);
-    }
-
-    public void setTurboOffButtonAction(ActionListener action) {
-        this.turboOffButton.addActionListener(action);
-    }
-
-    public void setLiftBedButtonAction(ActionListener action) {
-        this.liftBedButton.addActionListener(action);
-    }
-
-    public void setLowerBedButtonAction(ActionListener action) {
-        this.lowerBedButton.addActionListener(action);
-    }
-
-    public void setStartButtonAction(ActionListener action) {
-        this.startButton.addActionListener(action);
-    }
-
-    public void setStopButtonAction(ActionListener action) {
-        this.stopButton.addActionListener(action);
-    }
-
-    public void setAddCarButtonAction(ActionListener action) {
-        this.addCarButton.addActionListener(action);
-    }
-
-    public void setRemoveCarButtonAction(ActionListener action) {
-        this.removeCarButton.addActionListener(action);
-    }
-
     public JButton getAddCarButton() {
         return addCarButton;
     }
@@ -349,6 +349,9 @@ public class CarView extends JFrame {
         this.removeCarButton = removeCarButton;
     }
 
+    public void setDrawPanel(DrawPanel drawPanel) {
+        this.drawPanel = drawPanel;
+    }
 
     public int getWidth(){
         return width;

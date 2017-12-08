@@ -17,7 +17,7 @@ public abstract class Transport implements Movable {
     private double transportSize;
     private double maxStorageSpace;
     private boolean isMovable;
-    public BufferedImage image;
+    private BufferedImage image;
 
     public BufferedImage getImage() {
         return image;

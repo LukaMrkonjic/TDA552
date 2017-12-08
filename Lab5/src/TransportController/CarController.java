@@ -19,18 +19,18 @@ import java.util.ArrayList;
 public class CarController {
 	// member fields:
 
-	TransportModel tm;
-	TransportView.CarView frame; // The frame that represents this instance View of the MVC pattern
-	int gasAmount;
-	public ArrayList<Vehicle> vehicles;
+	private TransportModel tm;
+	private TransportView.CarView frame; // The frame that represents this instance View of the MVC pattern
+	private int gasAmount; //The controller must get the gas amount from the View
 	private final int delay = 50;  // The delay (ms) corresponds to 20 updates a sec (hz)
-	private Timer timer = new Timer(delay, new TimerListener()); // The timer is started with an listener (see below) that executes the statements each step between delays.
+	private Timer timer; // The timer is started with an listener (see below) that executes the statements each step between delays.
 
 
 	public CarController(TransportModel tm, CarView frame) {
 		this.tm = tm;
 		this.frame = frame;
-		this.vehicles = tm.getVehicles();
+
+		setTimer(new Timer(delay, new TimerListener));
 
 		frame.getTurnLeftButton().addActionListener(turnLeft);
 		frame.getTurnRightButton().addActionListener(turnRight);
@@ -54,20 +54,13 @@ public class CarController {
 	private class TimerListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			gasAmount = frame.getGasAmount();
-			//frame.getDrawPanel().getVehiclesToBeDrawn().clear();
-
-			//vehicles = tm.getVehicles();
-
 			for (Vehicle car : tm.getVehicles()) {
 				car.move();
-
 				if (car.isOutOfBounds(frame.getDrawPanel().getSize())) {
 					car.invertDirection();
 					car.move();
 					car.move();
 				}
-
-				//frame.getDrawPanel().getVehiclesToBeDrawn().add(car);
 			}
 			// repaint() calls the paintComponent method of the panel
 			frame.getDrawPanel().repaint();
@@ -78,16 +71,33 @@ public class CarController {
 	 * @return the frame's vehicles
 	 */
 	public ArrayList<Vehicle> getVehicles() {
-		return vehicles;
+		return tm.getVehicles();
 	}
 
 	/**
 	 * @param vehicles sets the frame's vehicles
 	 */
 	public void setVehicles(ArrayList<Vehicle> vehicles) {
-		this.vehicles = vehicles;
+		tm.setVehicles(vehicles);
 	}
 
+	/**
+	 * @return the timer
+	 */
+	public Timer getTimer() {
+		return timer;
+	}
+
+	/**
+	 * @param timer to be set
+	 */
+	public void setTimer(Timer timer) {
+		this.timer = timer;
+	}
+
+	/**
+	 * ActionListeners ---------------------------------
+	 */
 	ActionListener addCar = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -177,9 +187,4 @@ public class CarController {
 			tm.setBedToTrue();
 		}
 	};
-
-	public Timer getTimer() {
-		return timer;
-	}
-
 }

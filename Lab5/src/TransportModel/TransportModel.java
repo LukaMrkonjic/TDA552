@@ -28,6 +28,14 @@ public class TransportModel {
 
     /**
      *
+     * @param vehicles to be set
+     */
+    public void setVehicles(ArrayList<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
+
+    /**
+     *
      * @return the vehicles in the transportModel.
      */
     public ArrayList<Vehicle> getVehicles() {
@@ -75,6 +83,9 @@ public class TransportModel {
         }
     }
 
+
+    //TODO: fix these so they use the proper methods (setBed(false)) etc, and
+    // TODO: don't manipulate angles directly
     /**
      * Lowers the loading beds of all trucks.
      */
