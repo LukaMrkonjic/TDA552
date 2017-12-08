@@ -1,7 +1,6 @@
 import TransportController.CarController;
 import TransportModel.*;
 import TransportView.CarView;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -26,7 +25,6 @@ public class TransportApplication {
         //TODO: Skapa bilar med hjälp av Carfactory
         TransportModel tm = new TransportModel(vehicles);
 
-        //TODO: Ändra så att carView inte tar in en frame?:
         // Creates view
         CarView cv = new CarView("CarSim 1.0", tm);
 
